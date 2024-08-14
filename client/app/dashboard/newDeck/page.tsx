@@ -51,9 +51,10 @@ export default function Page() {
       <div>
         <div className="grid gap-2 w-96">
           <Label htmlFor="description">Deck Description</Label>
-          <Textarea
+          <Input
             placeholder="Create a deck about planets..."
             id="description"
+            type="text"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             onKeyUp={(e) => {
