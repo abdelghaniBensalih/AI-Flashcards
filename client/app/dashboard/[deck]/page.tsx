@@ -11,6 +11,8 @@ import { useEffect, useState } from "react";
 import { getDeck } from "@/lib/firebase/crud";
 import { Card,CardHeader,CardContent, CardFooter } from "@/components/ui/card";
 import { ModeToggle } from "@/components/mode-toggle";
+import { Slider } from "@/components/ui/slider"
+
 
 export default function Page() {
   const deckName = (useParams().deck as string).replace("-", " ");
@@ -49,6 +51,10 @@ export default function Page() {
     setIsFlipped(false);
     setCurrentCardIndex(index);
   };
+  // const handleSliderChange = (value: number) => {
+  //   setIsFlipped(false);
+  //   setCurrentCardIndex(value);
+  // };
 
 
   useEffect(() => {
@@ -185,6 +191,16 @@ export default function Page() {
               onChange={handleSliderChange}
               className="w-full mt-4"
             />
+            {/* <Slider
+              min={0}
+              max={deck.cards.length - 1}
+              value={currentCardIndex}
+              onChange={handleSliderChange}
+              className="mt-4"
+              style={{ height: '6px', backgroundColor: '#000', color: '#000' }} // Customize styles here
+              thumbStyle={{ width: '20px', height: '20px', backgroundColor: '#000' }} // Customize thumb styles here
+            /> */}
+         
         </div>
         
       ) : (
