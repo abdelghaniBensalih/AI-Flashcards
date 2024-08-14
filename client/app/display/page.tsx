@@ -1,12 +1,12 @@
 "use client"
 import React, { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button"; // Ensure you have a Button component from Shadcn UI or a custom one
+import { Button } from "@/components/ui/button"; 
 
 const flashcards = [
   { question: "What is SWOT?", answer: "SWOT stands for Strengths, Weaknesses, Opportunities, and Threats." },
   { question: "What is ROI?", answer: "ROI stands for Return on Investment." },
-  // Add more flashcards as needed
+
 ];
 
 function Flashcard() {
@@ -32,7 +32,6 @@ function Flashcard() {
   };
 
   const handleBackToDashboard = () => {
-    // Implement navigation to the dashboard
     console.log("Back to dashboard");
   };
 
@@ -48,6 +47,7 @@ function Flashcard() {
         onClick={handleFlip}
       >
         <CardHeader>
+          {/* Should get this from previous click just for now */}
           <h3 className="text-xl font-bold">Business</h3>
         </CardHeader>
         <CardContent className="flex flex-col justify-center items-center h-full">
