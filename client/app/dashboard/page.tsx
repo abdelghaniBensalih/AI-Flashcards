@@ -44,6 +44,9 @@ export default function Page() {
           <UserButton />
         </div>
       </div>
+      <Link href="/dashboard/newDeck" className="mx-auto">
+        <Button className="max-w-min mx-auto">Create a new deck!</Button>
+      </Link>
       <div className="grid grid-cols-3 gap-4">
         {decks &&
           decks.map((deck, index) => {
