@@ -8,9 +8,10 @@ import { UserButton } from "@clerk/nextjs";
 import { useUser } from "@clerk/nextjs";
 import { Card, Deck } from "@/lib/interfaces/interfaces";
 import { useEffect, useState } from "react";
+import { getDeck } from "@/lib/firebase/crud";
 
 export default function Page() {
-  const deckName = useParams().deck;
+  const deckName = (useParams().deck as string).replace("-", " ");
   const { user } = useUser();
   const userId = user?.id as string;
 
@@ -18,13 +19,7 @@ export default function Page() {
 
   useEffect(() => {
     if (userId) {
-      fetch("/api/getDeck", {
-        body: JSON.stringify({ userId: userId, deckName: deckName }),
-        method: "POST",
-        cache: "force-cache",
-      })
-        .then((res) => res.json())
-        .then((data: Deck) => setCards(data));
+      getDeck(userId, deckName, setCards);
     }
   }, [userId]);
 

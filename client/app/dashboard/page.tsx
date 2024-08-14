@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { getDecks } from "@/lib/firebase/crud";
+import { createDeck, deleteDeck, getDecks } from "@/lib/firebase/crud";
 import { UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
@@ -24,13 +24,7 @@ export default function Page() {
 
   useEffect(() => {
     if (userId) {
-      fetch("/api/getDecks", {
-        body: JSON.stringify({ userId: userId }),
-        method: "POST",
-        cache: "force-cache",
-      })
-        .then((res) => res.json())
-        .then((data) => setDecks(data));
+      getDecks(userId, setDecks);
     }
   }, [userId]);
 
@@ -50,7 +44,7 @@ export default function Page() {
           <UserButton />
         </div>
       </div>
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 gap-4">
         {decks &&
           decks.map((deck, index) => {
             return (
@@ -66,10 +60,24 @@ export default function Page() {
                     {deck.description}
                   </p>
                 </CardContent>
-                <CardFooter className="w-full">
-                  <Link href={`/dashboard/${deck.name}`} className="w-full">
+                <CardFooter className="w-full flex flex-col">
+                  <Link
+                    href={`/dashboard/${deck.name.replace(" ", "-")}`}
+                    className="w-full"
+                  >
                     <Button className="w-full">Study Now</Button>
                   </Link>
+                  <Button
+                    className="w-full mt-2"
+                    onClick={() =>
+                      deleteDeck(userId, deck.name).then(() =>
+                        getDecks(userId, setDecks)
+                      )
+                    }
+                    variant={"destructive"}
+                  >
+                    Delete
+                  </Button>
                 </CardFooter>
               </Card>
             );
