@@ -9,7 +9,7 @@ import { useUser } from "@clerk/nextjs";
 import { Deck } from "@/lib/interfaces/interfaces";
 import { useEffect, useState } from "react";
 import { getDeck } from "@/lib/firebase/crud";
-import { Card,CardHeader,CardContent } from "@/components/ui/card";
+import { Card,CardHeader,CardContent, CardFooter } from "@/components/ui/card";
 
 export default function Page() {
   const deckName = (useParams().deck as string).replace("-", " ");
@@ -97,28 +97,27 @@ export default function Page() {
       {deck && deck.cards.length > 0 ? (
         <div className="flex flex-col items-center w-full">
           <Card
-            className={`w-80 h-48 text-center cursor-pointer transition-transform duration-700 mt-10 ${
+            className={`w-full max-w-4xl h-[32rem] text-center cursor-pointer transition-transform duration-700 mt-10 ${
               isFlipped ? "transform rotate-y-180" : ""
             }`}
             onClick={handleFlip}
           >
-            <CardHeader>
-              <h3 className="text-xl font-bold">Business</h3>
-            </CardHeader>
+        
             <CardContent className="flex flex-col justify-center items-center h-full">
               <div>
                 {isFlipped ? (
-                  <div className="text-lg">
+                  <div className="text-4xl">
                     <p>{deck.cards[currentCardIndex].back}</p>
                   </div>
                 ) : (
-                  <div className="text-lg">
+                  <div className="text-4xl">
                     <p>{deck.cards[currentCardIndex].front}</p>
                   </div>
                 )}
               </div>
               <p className="mt-4">Click card to flip</p>
             </CardContent>
+         
           </Card>
 
           <div className="flex justify-between items-center mt-4 w-80">
