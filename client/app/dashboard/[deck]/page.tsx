@@ -63,73 +63,7 @@ export default function Page() {
     }
   }, [userId]);
 
-  // return (
-  //   <div className="flex flex-col items-center h-screen">
-  //     <div className="flex flex-row items-center justify-between w-full p-4">
-  //       <Link href="/dashboard">
-  //         <Button variant="outline">
-  //           <ChevronLeft />
-  //         </Button>
-  //       </Link>
-  //       <h1 className="text-4xl font-extrabold tracking-tight text-center">
-  //         {deckName}
-  //       </h1>
-  //       <div className="flex items-center space-x-4">
-  //         <ModeToggle /> 
-  //         <UserButton />
-  //       </div>
-     
-  //     </div>
 
-  //     {deck && deck.cards.length > 0 ? (
-  //       <div className="flex flex-col items-center w-full">
-  //         <Card
-  //           className={`w-full max-w-4xl h-[32rem] text-center cursor-pointer transition-transform duration-700 mt-10 ${
-  //             isFlipped ? "transform rotate-y-180" : ""
-  //           }`}
-  //           onClick={handleFlip}
-  //         >
-        
-  //           <CardContent className="flex flex-col justify-center items-center h-full">
-  //             <div>
-  //               {isFlipped ? (
-  //                 <div className="text-4xl">
-  //                   <p>{deck.cards[currentCardIndex].back}</p>
-  //                 </div>
-  //               ) : (
-  //                 <div className="text-4xl">
-  //                   <p>{deck.cards[currentCardIndex].front}</p>
-  //                 </div>
-  //               )}
-  //             </div>
-  //             <p className="mt-4">Click card to flip</p>
-  //           </CardContent>
-  //           <CardFooter className="text-center">
-  //             <p className="mt-4">Click card to flip</p>
-  //           </CardFooter>
-         
-  //         </Card>
-
-  //         <div className="flex justify-between items-center mt-4 w-80">
-  //           <Button onClick={handlePreviousCard} disabled={currentCardIndex === 0}>
-  //             ← Previous
-  //           </Button>
-  //           <p>
-  //             {currentCardIndex + 1}/{deck.cards.length}
-  //           </p>
-  //           <Button
-  //             onClick={handleNextCard}
-  //             disabled={currentCardIndex === deck.cards.length - 1}
-  //           >
-  //             Next →
-  //           </Button>
-  //         </div>
-  //       </div>
-  //     ) : (
-  //       <p>No cards available for this deck.</p>
-  //     )}
-  //   </div>
-  // );
   return (
     <div className="flex flex-col items-center h-screen">
       <div className="flex flex-row items-center justify-between w-full p-4 min-h-[4rem]">
@@ -142,7 +76,7 @@ export default function Page() {
           {deckName}
         </h1>
         <div className="flex items-center space-x-4">
-          <ModeToggle /> {/* Add the ModeToggle component here */}
+          <ModeToggle /> 
           <UserButton />
         </div>
       </div>
