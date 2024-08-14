@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,7 @@ import { Card } from "@/components/ui/card";
 export default function Page() {
   const [description, setDescription] = useState("");
   const [deck, setDeck] = useState<Deck>();
+  const { user } = useUser();
 
   const handleSubmit = async () => {
     fetch("/api/generate", {
@@ -25,6 +26,10 @@ export default function Page() {
       .then((data) => {
         setDeck(data);
       });
+  };
+
+  const handleNewDeckCreation = async () => {
+    await createDeck({ userId: user?.id as string, newDeck: deck as Deck });
   };
 
   return (
@@ -89,6 +94,9 @@ export default function Page() {
               </div>
             );
           })}
+        {deck && (
+          <Button onClick={() => handleNewDeckCreation()}>Save Deck</Button>
+        )}
       </div>
     </div>
   );
