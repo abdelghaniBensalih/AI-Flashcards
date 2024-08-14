@@ -10,6 +10,7 @@ import { Deck } from "@/lib/interfaces/interfaces";
 import { useEffect, useState } from "react";
 import { getDeck } from "@/lib/firebase/crud";
 import { Card,CardHeader,CardContent, CardFooter } from "@/components/ui/card";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Page() {
   const deckName = (useParams().deck as string).replace("-", " ");
@@ -91,7 +92,11 @@ export default function Page() {
         <h1 className="text-4xl font-extrabold tracking-tight text-center">
           {deckName}
         </h1>
-        <UserButton />
+        <div className="flex items-center space-x-4">
+          <ModeToggle /> {/* Add the ModeToggle component here */}
+          <UserButton />
+        </div>
+        {/* <UserButton /> */}
       </div>
 
       {deck && deck.cards.length > 0 ? (
