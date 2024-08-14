@@ -1,4 +1,4 @@
-"use client"
+import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import {
   SignIn,
@@ -7,29 +7,32 @@ import {
   SignOutButton,
   UserButton,
   SignInButton,
+  SignUpButton,
+  useUser,
 } from "@clerk/nextjs";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Home() {
-  const router = useRouter();
-
-  const handleRedirect = () => {
-    router.push('/display'); // This redirects to the display page
-  };
-  
   return (
     <div>
-      <Button onClick={handleRedirect}>Go to Display Page</Button>
-      <Button>Get to coding</Button>
+      <Link href="/dashboard">
+        <Button>Get to coding</Button>
+      </Link>
+      <ModeToggle />
       <SignedOut>
-        <SignInButton />
+        <Link href="/sign-in">
+          <Button>Login</Button>
+        </Link>
+        <Link href="/sign-up">
+          <Button>Sign Up</Button>
+        </Link>
       </SignedOut>
       <SignedIn>
         <UserButton />
-        <SignOutButton />
       </SignedIn>
+      <SignOutButton />
     </div>
-    
   );
 }
