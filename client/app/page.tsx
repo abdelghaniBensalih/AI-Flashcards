@@ -1,4 +1,3 @@
-
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import {
@@ -72,72 +71,116 @@ export default function Home() {
           </SignedIn>
         </div>
       </div>
+      
       {/* Features section */}
-      <div className="mt-16">
-        <h2 className="text-3xl font-bold mb-8">Features</h2>
+      <div className="mt-16 px-4">
+        <h2 className="text-3xl font-bold mb-8 text-center">Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="flex flex-col items-center">
-        <svg
-          className="w-12 h-12 text-blue-500 mb-4"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 8v4l2 2" />
-          <path d="M12 16v4l2-2" />
-          <path d="M12 16V8M12 16L10 14M12 16l-2 2" />
-        </svg>
-        <h3 className="text-xl font-semibold mb-2">Create Flashcards</h3>
-        <p className="text-gray-600 text-center">
-          Easily create your own flashcards with our intuitive interface.
-        </p>
+          <div className="flex flex-col items-center text-center">
+            <svg
+              className="w-12 h-12 text-green-500 mb-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M4 4h16v16H4z" />
+              <path d="M8 4v16M16 4v16" />
+            </svg>
+            <h3 className="text-xl font-semibold mb-2">Create Flashcards</h3>
+            <p className="text-gray-600">
+              Easily create your own flashcards with our intuitive interface.
+            </p>
           </div>
-          <div className="flex flex-col items-center">
-        <svg
-          className="w-12 h-12 text-blue-500 mb-4"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-          <polyline points="22 4 12 14.01 9 11.01" />
-        </svg>
-        <h3 className="text-xl font-semibold mb-2">Manage Decks</h3>
-        <p className="text-gray-600 text-center">
-          Organize and manage your flashcard decks with ease.
-        </p>
+          <div className="flex flex-col items-center text-center">
+            <svg
+              className="w-12 h-12 text-green-500 mb-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M4 6h16v12H4z" />
+              <path d="M12 6v12M8 12h8" />
+            </svg>
+            <h3 className="text-xl font-semibold mb-2">Manage Decks</h3>
+            <p className="text-gray-600">
+              Organize and manage your flashcard decks with ease.
+            </p>
           </div>
-          <div className="flex flex-col items-center">
-        <svg
-          className="w-12 h-12 text-blue-500 mb-4"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 2L2 7l10 5 10-5-10-5z" />
-          <path d="M12 22l10-5V7L12 2 2 7v10l10 5z" />
-        </svg>
-        <h3 className="text-xl font-semibold mb-2">Review Flashcards</h3>
-        <p className="text-gray-600 text-center">
-          Review your flashcards to reinforce your learning and retention.
-        </p>
+          <div className="flex flex-col items-center text-center">
+            <svg
+              className="w-12 h-12 text-green-500 mb-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M12 2L2 7l10 5 10-5-10-5z" />
+              <path d="M12 22l10-5V7L12 2 2 7v10l10 5z" />
+            </svg>
+            <h3 className="text-xl font-semibold mb-2">Review Flashcards</h3>
+            <p className="text-gray-600">
+              Review your flashcards to reinforce your learning and retention.
+            </p>
           </div>
         </div>
       </div>
-      
+
+      {/* Pricing section */}
+      <div className="mt-16 px-4">
+  <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="flex flex-col items-center bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center">
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Basic</h3>
+      <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">$5/month</p>
+      <ul className="text-gray-600 dark:text-gray-300 mb-6">
+        <li>Access to basic features</li>
+        <li>Limited storage</li>
+        <li>Basic support</li>
+      </ul>
+      <button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+        Get Started
+      </button>
+    </div>
+    <div className="flex flex-col items-center bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center">
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Pro</h3>
+      <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">$10/month</p>
+      <ul className="text-gray-600 dark:text-gray-300 mb-6">
+        <li>Access to all features</li>
+        <li>Unlimited flashcards</li>
+        <li>Premium support</li>
+      </ul>
+      <button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+        Choose Pro
+      </button>
+    </div>
+    <div className="flex flex-col items-center bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center">
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Enterprise</h3>
+      <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">Contact us for pricing</p>
+      <ul className="text-gray-600 dark:text-gray-300 mb-6">
+        <li>Access to all features</li>
+        <li>Unlimited flashcards</li>
+        <li>Premium support</li>
+        <li>Advanced analytics</li>
+        <li>Custom branding</li>
+      </ul>
+      <button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+        Contact Us
+      </button>
+    </div>
+  </div>
+</div>
+
     </div>
   );
 }
