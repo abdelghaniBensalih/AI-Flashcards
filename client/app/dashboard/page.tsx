@@ -15,6 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ChevronLeft } from "lucide-react";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Page() {
   const [decks, setDecks] = useState<Deck[]>();
@@ -40,12 +41,13 @@ export default function Page() {
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
           Your Cards
         </h1>
-        <div>
+        <div className="flex space-x-4">
+          <ModeToggle />
           <UserButton />
         </div>
       </div>
       <Link href="/dashboard/newDeck" className="mx-auto">
-        <Button className="max-w-min mx-auto">Create a new deck!</Button>
+        <Button className="max-w-min mx-auto">Create a new deck</Button>
       </Link>
       <div className="grid grid-cols-3 gap-4">
         {decks &&

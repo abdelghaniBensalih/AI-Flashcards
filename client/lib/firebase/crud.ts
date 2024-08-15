@@ -10,7 +10,7 @@ import {
   where,
 } from "firebase/firestore";
 import { Deck } from "../interfaces/interfaces";
-import { CreateDeckRequestParams } from "@/app/api/createDeck/route";
+import { CreateDeckRequestParams } from "@/app/api/createDeckFromText/route";
 
 export const getDecks = async (
   userId: string,
@@ -23,8 +23,6 @@ export const getDecks = async (
   })
     .then((res) => res.json())
     .then((data: Deck[]) => {
-      console.log(data);
-
       setDecks(data);
     });
 };

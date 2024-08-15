@@ -11,7 +11,6 @@
 // import { Deck } from "@/lib/interfaces/interfaces";
 // import { Card } from "@/components/ui/card";
 
-
 // export default function Page() {
 //   const [description, setDescription] = useState("");
 //   const [deck, setDeck] = useState<Deck>();
@@ -160,6 +159,7 @@ import { createDeck } from "@/lib/firebase/crud";
 import { Deck } from "@/lib/interfaces/interfaces";
 import { Card } from "@/components/ui/card";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"; // Import Shadcn Alert components
+import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Page() {
   const [description, setDescription] = useState("");
@@ -171,7 +171,7 @@ export default function Page() {
   const { user } = useUser();
 
   const handleSubmit = async () => {
-    fetch("/api/generate", {
+    fetch("/api/generateDeckFromText", {
       method: "POST",
       body: JSON.stringify({ description }),
     })
@@ -198,10 +198,19 @@ export default function Page() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (alertRef.current && !alertRef.current.contains(event.target as Node)) {
+      if (
+        alertRef.current &&
+        !alertRef.current.contains(event.target as Node)
+      ) {
         handleCloseAlert();
       }
     };
+
+    fetch("/api/generateDeckFromImage", {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -220,7 +229,8 @@ export default function Page() {
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
           New Deck
         </h1>
-        <div>
+        <div className="flex space-x-4">
+          <ModeToggle />
           <UserButton />
         </div>
       </div>
@@ -238,7 +248,7 @@ export default function Page() {
             }}
           />
           <Button
-            className="max-w-min justify-self-end"
+            className="justify-self-end w-full"
             onClick={() => handleSubmit()}
           >
             Generate!
@@ -251,16 +261,12 @@ export default function Page() {
             deck.cards.map((card, index) => (
               <div className="flip-card" key={index}>
                 <div className="flip-card-inner">
-                  <Card
-                    className="size-60 flex items-center justify-center hover:hidden flip-card-front"
-                  >
+                  <Card className="size-60 flex items-center justify-center hover:hidden flip-card-front">
                     <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0 text-center">
                       {card.front}
                     </h2>
                   </Card>
-                  <Card
-                    className="size-60 flex items-center justify-center absolute flip-card-back p-4"
-                  >
+                  <Card className="size-60 flex items-center justify-center absolute flip-card-back p-4">
                     <h2 className="scroll-m-20 text-lg font-semibold tracking-tight first:mt-0 text-center">
                       {card.back}
                     </h2>
@@ -294,4 +300,3 @@ export default function Page() {
     </div>
   );
 }
-
