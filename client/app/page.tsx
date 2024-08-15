@@ -235,7 +235,6 @@ export default function Home() {
             </ul>
             <Button
              className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-             onClick={handeleSubmit}
              >
               Contact Us
             </Button>

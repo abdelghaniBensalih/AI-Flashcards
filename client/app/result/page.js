@@ -1,8 +1,8 @@
 'use client'
 import {useEffect, useState} from 'react'
-import {useRouer} from 'next/navigation'
+import {useRouter} from 'next/navigation'
 import { useSearchParams } from 'next/navigation'
-import getStripe from 'client/lib/stripe/get-stripe'
+import getStripe from '@/lib/stripe/get-stripe'
 
 
 const ResultPage = () => {
@@ -38,30 +38,24 @@ const ResultPage = () => {
 
   if (loading) {return (<p>loading...</p>)}
   if (error) {return (<p>{error}</p>)}
-
   return (
-    {
-      session.payment_status === 'paid' ? (
+    <div>
+      {session && session.payment_status === 'paid' ? (
         <div>
-           <h1>Payment successful</h1>
-           <p>Thank you for your purchase</p>
-           <p>Session ID: {sessionId} </p>
-           <p>we have received your payment. You will receive an email with the order details shortly.</p>
-          </div>
+          <h1>Payment successful</h1>
+          <p>Thank you for your purchase</p>
+          <p>Session ID: {sessionId} </p>
+          <p>we have received your payment. You will receive an email with the order details shortly.</p>
+        </div>
       ) : (
         <div>
-             <h1>Payment Failed</h1>
-            
-             <p>Your payment was not successful. Please try again. </p>
+          <h1>Payment Failed</h1>
+          <p>Your payment was not successful. Please try again. </p>
+        </div>
+      )}
     </div>
-      )
-
-    }
-    
-  )
-
+  );
 }
-
 export default ResultPage
       
 
