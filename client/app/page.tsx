@@ -56,13 +56,16 @@ export default function Home() {
       </div>
 
       {/* Centered content */}
-      <div className="my-12 flex items-center justify-center">
+      <div className="my-20 flex items-center justify-center">
         <div className="flex flex-col items-center justify-center text-center">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
             FlashFlorte
           </h1>
           <p className="text-lg mb-8 max-w-lg">
-            Discover a smarter way to study with FlashFlorte. Create, manage, and review your flashcards effortlessly to boost your learning and retention. Get started now and turn your study sessions into productive adventures!
+            Discover a smarter way to study with FlashFlorte. Create, manage,
+            and review your flashcards effortlessly to boost your learning and
+            retention. Get started now and turn your study sessions into
+            productive adventures!
           </p>
           <SignedIn>
             <Link href="/dashboard">
@@ -71,12 +74,12 @@ export default function Home() {
           </SignedIn>
         </div>
       </div>
-      
+
       {/* Features section */}
       <div className="mt-16 px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
             <svg
               className="w-12 h-12 text-green-500 mb-4"
               xmlns="http://www.w3.org/2000/svg"
@@ -90,12 +93,14 @@ export default function Home() {
               <path d="M4 4h16v16H4z" />
               <path d="M8 4v16M16 4v16" />
             </svg>
-            <h3 className="text-xl font-semibold mb-2">Create Flashcards</h3>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              Create Flashcards
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300">
               Easily create your own flashcards with our intuitive interface.
             </p>
           </div>
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
             <svg
               className="w-12 h-12 text-green-500 mb-4"
               xmlns="http://www.w3.org/2000/svg"
@@ -109,12 +114,14 @@ export default function Home() {
               <path d="M4 6h16v12H4z" />
               <path d="M12 6v12M8 12h8" />
             </svg>
-            <h3 className="text-xl font-semibold mb-2">Manage Decks</h3>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              Manage Decks
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300">
               Organize and manage your flashcard decks with ease.
             </p>
           </div>
-          <div className="flex flex-col items-center text-center">
+          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
             <svg
               className="w-12 h-12 text-green-500 mb-4"
               xmlns="http://www.w3.org/2000/svg"
@@ -128,8 +135,10 @@ export default function Home() {
               <path d="M12 2L2 7l10 5 10-5-10-5z" />
               <path d="M12 22l10-5V7L12 2 2 7v10l10 5z" />
             </svg>
-            <h3 className="text-xl font-semibold mb-2">Review Flashcards</h3>
-            <p className="text-gray-600">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              Review Flashcards
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300">
               Review your flashcards to reinforce your learning and retention.
             </p>
           </div>
@@ -138,49 +147,68 @@ export default function Home() {
 
       {/* Pricing section */}
       <div className="mt-16 px-4">
-  <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div className="flex flex-col items-center bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center">
-      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Basic</h3>
-      <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">$5/month</p>
-      <ul className="text-gray-600 dark:text-gray-300 mb-6">
-        <li>Access to basic features</li>
-        <li>Limited storage</li>
-        <li>Basic support</li>
-      </ul>
-      <button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-        Get Started
-      </button>
-    </div>
-    <div className="flex flex-col items-center bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center">
-      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Pro</h3>
-      <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">$10/month</p>
-      <ul className="text-gray-600 dark:text-gray-300 mb-6">
-        <li>Access to all features</li>
-        <li>Unlimited flashcards</li>
-        <li>Premium support</li>
-      </ul>
-      <button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-        Choose Pro
-      </button>
-    </div>
-    <div className="flex flex-col items-center bg-white dark:bg-gray-800 shadow-lg rounded-lg p-6 text-center">
-      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">Enterprise</h3>
-      <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">Contact us for pricing</p>
-      <ul className="text-gray-600 dark:text-gray-300 mb-6">
-        <li>Access to all features</li>
-        <li>Unlimited flashcards</li>
-        <li>Premium support</li>
-        <li>Advanced analytics</li>
-        <li>Custom branding</li>
-      </ul>
-      <button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-        Contact Us
-      </button>
-    </div>
-  </div>
-</div>
-
+        <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              Basic
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
+              $5/month
+            </p>
+            <ul className="text-gray-600 dark:text-gray-300 mb-6">
+              <li>Access to basic features</li>
+              <li>Limited storage</li>
+              <li>Basic support</li>
+            </ul>
+            <Button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+              Get Started
+            </Button>
+          </div>
+          <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              Pro
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
+              $10/month
+            </p>
+            <ul className="text-gray-600 dark:text-gray-300 mb-6">
+              <li>Access to all features</li>
+              <li>Unlimited flashcards</li>
+              <li>Premium support</li>
+            </ul>
+            <Button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+              Choose Pro
+            </Button>
+          </div>
+          <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              Enterprise
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
+              Contact us for pricing
+            </p>
+            <ul className="text-gray-600 dark:text-gray-300 mb-6">
+              <li>Access to all features</li>
+              <li>Unlimited flashcards</li>
+              <li>Premium support</li>
+              <li>Advanced analytics</li>
+              <li>Custom branding</li>
+            </ul>
+            <Button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+              Contact Us
+            </Button>
+          </div>
+        </div>
+      </div>
+      {/* Copyright section */}
+      <footer className="mt-16 px-4 py-8 bg-slate-100 dark:bg-gray-800">
+           <div className="max-w-4xl mx-auto text-center">
+              <p className="text-gray-600 dark:text-gray-400">
+               © 2024 FlashFlorte. All rights reserved.
+              </p>
+           </div>
+      </footer>
     </div>
   );
 }
