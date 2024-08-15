@@ -10,6 +10,10 @@ import {
 } from "@clerk/nextjs";
 import Link from "next/link";
 
+//----------stripe import-----
+import { loadStripe } from "@stripe/stripe-js";
+//--------------------------
+
 export default function Home() {
   return (
     <div className="relative min-h-screen p-4">
@@ -53,7 +57,7 @@ export default function Home() {
       </div>
 
       {/* Centered content */}
-      <div className="h-screen flex items-center justify-center">
+      <div className="my-12 flex items-center justify-center">
         <div className="flex flex-col items-center justify-center text-center">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
             FlashFlorte
@@ -68,6 +72,72 @@ export default function Home() {
           </SignedIn>
         </div>
       </div>
+      {/* Features section */}
+      <div className="mt-16">
+        <h2 className="text-3xl font-bold mb-8">Features</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center">
+        <svg
+          className="w-12 h-12 text-blue-500 mb-4"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <circle cx="12" cy="12" r="10" />
+          <path d="M12 8v4l2 2" />
+          <path d="M12 16v4l2-2" />
+          <path d="M12 16V8M12 16L10 14M12 16l-2 2" />
+        </svg>
+        <h3 className="text-xl font-semibold mb-2">Create Flashcards</h3>
+        <p className="text-gray-600 text-center">
+          Easily create your own flashcards with our intuitive interface.
+        </p>
+          </div>
+          <div className="flex flex-col items-center">
+        <svg
+          className="w-12 h-12 text-blue-500 mb-4"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+          <polyline points="22 4 12 14.01 9 11.01" />
+        </svg>
+        <h3 className="text-xl font-semibold mb-2">Manage Decks</h3>
+        <p className="text-gray-600 text-center">
+          Organize and manage your flashcard decks with ease.
+        </p>
+          </div>
+          <div className="flex flex-col items-center">
+        <svg
+          className="w-12 h-12 text-blue-500 mb-4"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+          <path d="M12 22l10-5V7L12 2 2 7v10l10 5z" />
+        </svg>
+        <h3 className="text-xl font-semibold mb-2">Review Flashcards</h3>
+        <p className="text-gray-600 text-center">
+          Review your flashcards to reinforce your learning and retention.
+        </p>
+          </div>
+        </div>
+      </div>
+      
     </div>
   );
 }
