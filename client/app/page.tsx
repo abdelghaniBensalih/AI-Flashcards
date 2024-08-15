@@ -1,3 +1,4 @@
+'use client'
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import {
@@ -11,9 +12,40 @@ import Link from "next/link";
 
 //----------stripe import-----
 import { loadStripe } from "@stripe/stripe-js";
+import { get } from "http";
+
+import getStripe from "@/lib/stripe/get-stripe";
+
+
 //--------------------------
 
 export default function Home() {
+//-----------------stripe function----------------
+  const handeleSubmit = async () => {
+    const checkoutSession = await fetch("/api/checkout_session", {
+      method: "POST",
+      headers: {
+        origin:"http://localhost:3000",
+      },
+    })
+
+    const checkoutSessionJson = await checkoutSession.json()
+
+    if (checkoutSession.statusCode === 500) {
+      console.error(checkoutSessionJson.message)
+      return 
+    }
+    const stripe = await getStripe()
+    const { error } = await stripe.redirectToCheckout({
+      sessionId: checkoutSessionJson.id
+    })
+
+    if (error) {
+      console.error(error.message)
+    }
+  }
+
+//------------------------------------
   return (
     <div className="relative min-h-screen p-4">
       {/* Top-left logo and title */}
@@ -161,8 +193,11 @@ export default function Home() {
               <li>Limited storage</li>
               <li>Basic support</li>
             </ul>
-            <Button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-              Get Started
+            <Button 
+            className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+            onClick={handeleSubmit}
+            >
+             Get Started
             </Button>
           </div>
           <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
@@ -177,7 +212,10 @@ export default function Home() {
               <li>Unlimited flashcards</li>
               <li>Premium support</li>
             </ul>
-            <Button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+            <Button
+             className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+             onClick={handeleSubmit}
+             >
               Choose Pro
             </Button>
           </div>
@@ -195,7 +233,10 @@ export default function Home() {
               <li>Advanced analytics</li>
               <li>Custom branding</li>
             </ul>
-            <Button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
+            <Button
+             className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+             onClick={handeleSubmit}
+             >
               Contact Us
             </Button>
           </div>
