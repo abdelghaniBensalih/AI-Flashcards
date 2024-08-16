@@ -1,25 +1,229 @@
-"use client";
+// "use client";
 
+// import { Button } from "@/components/ui/button";
+// import { UserButton, useUser } from "@clerk/nextjs";
+// import Link from "next/link";
+// import { ChevronLeft } from "lucide-react";
+// import { Input } from "@/components/ui/input";
+// import { Label } from "@/components/ui/label";
+// import { useState, useRef, useEffect } from "react";
+// import { createDeck } from "@/lib/firebase/crud";
+// import { Deck } from "@/lib/interfaces/interfaces";
+// import { Card } from "@/components/ui/card";
+// import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"; // Import Shadcn Alert components
+// import { ModeToggle } from "@/components/mode-toggle";
+
+// export default function Page() {
+//   const [description, setDescription] = useState("");
+//   const [file, setFile] = useState<File>();
+//   const [deck, setDeck] = useState<Deck>();
+//   const [alertVisible, setAlertVisible] = useState(false);
+//   const [alertMessage, setAlertMessage] = useState("");
+//   const alertRef = useRef<HTMLDivElement>(null); // Reference for the alert box
+//   const [showSkeleton, setShowSkeleton] = useState(false); // State to manage Skeleton visibility
+//   const skeletonRef = useRef<HTMLDivElement>(null); // Reference for the Skeleton
+//   const { user } = useUser();
+
+//   const generateDeckFromText = (userDescription: string) => {
+//     fetch("/api/generateDeckFromText", {
+//       method: "POST",
+//       body: JSON.stringify({ description: userDescription }),
+//     })
+//       .then((res) => res.json())
+//       .then((data) => {
+//         setDeck(data);
+//       });
+//   };
+
+//   const handleSubmit = async () => {
+//     if (description === "" && !file) {
+//       setAlertMessage("Please enter a description or upload an image.");
+//       setAlertVisible(true);
+//       return;
+//     } else if (description !== "" && file) {
+//       setAlertMessage(
+//         "Please enter either a description or upload an image, not both."
+//       );
+//       setAlertVisible(true);
+//       return;
+//     } else if (description !== "") {
+//       generateDeckFromText(description);
+//     } else {
+//       const reader = new FileReader();
+//       reader.onload = async (e) => {
+//         const base64String = e.target?.result;
+//         fetch("/api/generateDeckFromFile", {
+//           method: "POST",
+//           body: JSON.stringify({ base64String: base64String }),
+//         })
+//           .then((res) => res.json())
+//           .then((data) => {
+//             let fullText = "";
+//             data.data.ParsedResults.forEach((result: any) => {
+//               fullText += result.ParsedText;
+//             });
+//             generateDeckFromText(fullText);
+//           });
+//       };
+//       reader.readAsDataURL(file as Blob);
+//     }
+//   };
+
+//   const handleNewDeckCreation = async () => {
+//     try {
+//       await createDeck({ userId: user?.id as string, newDeck: deck as Deck });
+//       setAlertMessage("Deck saved successfully!");
+//       setAlertVisible(true);
+//     } catch (error) {
+//       setAlertMessage("Failed to save the deck.");
+//       setAlertVisible(true);
+//     }
+//   };
+
+//   const handleCloseAlert = () => {
+//     setAlertVisible(false);
+//   };
+
+//   useEffect(() => {
+//     const handleClickOutside = (event: MouseEvent) => {
+//       if (
+//         alertRef.current &&
+//         !alertRef.current.contains(event.target as Node)
+//       ) {
+//         handleCloseAlert();
+//       }
+//     };
+
+//     document.addEventListener("mousedown", handleClickOutside);
+//     return () => {
+//       document.removeEventListener("mousedown", handleClickOutside);
+//     };
+//   }, []);
+
+//   return (
+//     <div className="grid gap-10">
+//       <div className="flex flex-row items-center justify-between">
+//         <Link href="/dashboard">
+//           <Button variant="outline">
+//             <ChevronLeft />
+//           </Button>
+//         </Link>
+//         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
+//           New Deck
+//         </h1>
+//         <div className="flex space-x-4">
+//           <ModeToggle />
+//           <UserButton />
+//         </div>
+//       </div>
+//       <div>
+//         <div className="flex flex-col items-center space-y-4 w-full max-w-md mx-auto">
+//           <Label htmlFor="description">Deck Description 💬</Label>
+//           <Input
+//             placeholder="Create a deck about planets..."
+//             id="description"
+//             type="text"
+//             value={description}
+//             onChange={(e) => setDescription(e.target.value)}
+//             onKeyUp={(e) => {
+//               if (e.key === "Enter") handleSubmit();
+//             }}
+//           />
+//           <h3>Or...</h3>
+//           <Label htmlFor="image">Image of your notes 📷</Label>
+//           <Input
+//             placeholder="Create a deck about planets..."
+//             id="image"
+//             type="file"
+//             accept="image/*, application/pdf"
+//             onChange={(e) => {
+//               if (e.target.files && e.target.files[0].size / 1000 > 1024) {
+//                 setAlertMessage(
+//                   "File size too large. Please upload a file less than 1MB. Otherwise, upload a PDF less than 3 pages."
+//                 );
+//                 setAlertVisible(true);
+//                 return;
+//               } else {
+//                 setFile(e.target.files![0]);
+//               }
+//             }}
+//           />
+//           <Button
+//             className="justify-self-end w-full"
+//             onClick={() => handleSubmit()}
+//           >
+//             Generate!
+//           </Button>
+//         </div>
+//       </div>
+//       <div className="flex flex-col items-center">
+//         <div className="w-full flex flex-wrap gap-4 justify-center">
+//           {deck !== undefined ? (
+//             deck.cards.map((card, index) => (
+//               <div className="flip-card" key={index}>
+//                 <div className="flip-card-inner">
+//                   <Card className="size-60 flex items-center justify-center hover:hidden flip-card-front">
+//                     <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0 text-center">
+//                       {card.front}
+//                     </h2>
+//                   </Card>
+//                   <Card className="size-60 flex items-center justify-center absolute flip-card-back p-4">
+//                     <h2 className="scroll-m-20 text-lg font-semibold tracking-tight first:mt-0 text-center">
+//                       {card.back}
+//                     </h2>
+//                   </Card>
+//                 </div>
+//               </div>
+//             ))
+//           ) : (
+//             <div></div>
+//           )}
+//         </div>
+//         {deck && (
+//           <div className="flex justify-center mt-4">
+//             <Button onClick={() => handleNewDeckCreation()}>Save Deck</Button>
+//           </div>
+//         )}
+//       </div>
+
+//       {/* Alert */}
+//       {alertVisible && (
+//         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+//           <div ref={alertRef} className="w-full max-w-sm p-4">
+//             <Alert variant="default">
+//               <AlertTitle>{alertMessage}</AlertTitle>
+//               <AlertDescription>
+//                 <Button className="mt-4 w-full" onClick={handleCloseAlert}>
+//                   Close
+//                 </Button>
+//               </AlertDescription>
+//             </Alert>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
+"use client"
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState, useRef, useEffect } from "react";
 import { createDeck } from "@/lib/firebase/crud";
 import { Deck } from "@/lib/interfaces/interfaces";
 import { Card } from "@/components/ui/card";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert"; // Import Shadcn Alert components
 import { ModeToggle } from "@/components/mode-toggle";
+import checkmarkIcon from "@/public/checkmark.svg";
 
 export default function Page() {
   const [description, setDescription] = useState("");
   const [file, setFile] = useState<File>();
   const [deck, setDeck] = useState<Deck>();
-  const [alertVisible, setAlertVisible] = useState(false);
-  const [alertMessage, setAlertMessage] = useState("");
-  const alertRef = useRef<HTMLDivElement>(null); // Reference for the alert box
+  const [notificationVisible, setNotificationVisible] = useState(false);
+  const [notificationMessage, setNotificationMessage] = useState("");
   const { user } = useUser();
 
   const generateDeckFromText = (userDescription: string) => {
@@ -35,14 +239,14 @@ export default function Page() {
 
   const handleSubmit = async () => {
     if (description === "" && !file) {
-      setAlertMessage("Please enter a description or upload an image.");
-      setAlertVisible(true);
+      setNotificationMessage("Please enter a description or upload an image.");
+      setNotificationVisible(true);
       return;
     } else if (description !== "" && file) {
-      setAlertMessage(
+      setNotificationMessage(
         "Please enter either a description or upload an image, not both."
       );
-      setAlertVisible(true);
+      setNotificationVisible(true);
       return;
     } else if (description !== "") {
       generateDeckFromText(description);
@@ -70,33 +274,19 @@ export default function Page() {
   const handleNewDeckCreation = async () => {
     try {
       await createDeck({ userId: user?.id as string, newDeck: deck as Deck });
-      setAlertMessage("Deck saved successfully!");
-      setAlertVisible(true);
+      setNotificationMessage("Deck saved successfully!");
+      setNotificationVisible(true);
+      setTimeout(() => {
+        setNotificationVisible(false);
+      }, 3000); // Hide notification after 3 seconds
     } catch (error) {
-      setAlertMessage("Failed to save the deck.");
-      setAlertVisible(true);
+      setNotificationMessage("Failed to save the deck.");
+      setNotificationVisible(true);
+      setTimeout(() => {
+        setNotificationVisible(false);
+      }, 3000); // Hide notification after 3 seconds
     }
   };
-
-  const handleCloseAlert = () => {
-    setAlertVisible(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        alertRef.current &&
-        !alertRef.current.contains(event.target as Node)
-      ) {
-        handleCloseAlert();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <div className="grid gap-10">
@@ -136,10 +326,10 @@ export default function Page() {
             accept="image/*, application/pdf"
             onChange={(e) => {
               if (e.target.files && e.target.files[0].size / 1000 > 1024) {
-                setAlertMessage(
+                setNotificationMessage(
                   "File size too large. Please upload a file less than 1MB. Otherwise, upload a PDF less than 3 pages."
                 );
-                setAlertVisible(true);
+                setNotificationVisible(true);
                 return;
               } else {
                 setFile(e.target.files![0]);
@@ -184,21 +374,14 @@ export default function Page() {
         )}
       </div>
 
-      {/* Alert */}
-      {alertVisible && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div ref={alertRef} className="w-full max-w-sm p-4">
-            <Alert variant="default">
-              <AlertTitle>{alertMessage}</AlertTitle>
-              <AlertDescription>
-                <Button className="mt-4 w-full" onClick={handleCloseAlert}>
-                  Close
-                </Button>
-              </AlertDescription>
-            </Alert>
-          </div>
+      {/* Notification */}
+      {notificationVisible && (
+        <div className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-lg shadow-lg flex items-center space-x-3">
+          <img src={checkmarkIcon.src} alt="Checkmark icon" className="w-6 h-6"/>
+          <span>{notificationMessage}</span>
         </div>
       )}
     </div>
   );
 }
+

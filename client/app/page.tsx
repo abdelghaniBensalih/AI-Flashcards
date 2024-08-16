@@ -182,7 +182,7 @@ export default function Home() {
               Basic
             </h3>
             <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
-              $5/month
+              $7/month
             </p>
             <ul className="text-gray-600 dark:text-gray-300 mb-6">
               <li>Access to basic features</li>
@@ -201,7 +201,7 @@ export default function Home() {
               Pro
             </h3>
             <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
-              $10/month
+              $7/month
             </p>
             <ul className="text-gray-600 dark:text-gray-300 mb-6">
               <li>Access to all features</li>
