@@ -25,7 +25,7 @@ export default function Page() {
   const generateDeckFromText = (userDescription: string) => {
     fetch("/api/generateDeckFromText", {
       method: "POST",
-      body: JSON.stringify({ userDescription }),
+      body: JSON.stringify({ description: userDescription }),
     })
       .then((res) => res.json())
       .then((data) => {
