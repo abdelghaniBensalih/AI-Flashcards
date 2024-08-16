@@ -181,10 +181,10 @@ export default function Home() {
   <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
     <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
       <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-        Free Version
+        Basic Version
       </h3>
       <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
-        $0
+        $7/month
       </p>
       <ul className="text-gray-600 dark:text-gray-300 mb-6">
         <li>Access to basic features</li>
@@ -203,7 +203,7 @@ export default function Home() {
         Pro Version
       </h3>
       <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
-        $7/month
+        $10/month
       </p>
       <ul className="text-gray-600 dark:text-gray-300 mb-6">
         <li>Access to all features</li>
