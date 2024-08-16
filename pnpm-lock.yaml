@@ -17,6 +17,9 @@ importers:
       '@shadcn/ui':
         specifier: ^0.0.4
         version: 0.0.4
+      '@stripe/stripe-js':
+        specifier: github:stripe/stripe-js
+        version: https://codeload.github.com/stripe/stripe-js/tar.gz/1ebe69fbacb1ad082801a6b7f71f2318e0d53750
 
 packages:
 
@@ -308,6 +311,11 @@ packages:
   '@shadcn/ui@0.0.4':
     resolution: {integrity: sha512-0dtu/5ApsOZ24qgaZwtif8jVwqol7a4m1x5AxPuM1k5wxhqU7t/qEfBGtaSki1R8VlbTQfCj5PAlO45NKCa7Gg==}
     hasBin: true
+
+  '@stripe/stripe-js@https://codeload.github.com/stripe/stripe-js/tar.gz/1ebe69fbacb1ad082801a6b7f71f2318e0d53750':
+    resolution: {tarball: https://codeload.github.com/stripe/stripe-js/tar.gz/1ebe69fbacb1ad082801a6b7f71f2318e0d53750}
+    version: 4.3.0
+    engines: {node: '>=12.16'}
 
   ansi-regex@6.0.1:
     resolution: {integrity: sha512-n5M855fKb2SsfMIiFFoVrABHJC8QtHwVx+mHWP3QcEqBHYienj5dHSgjbxtC0WEZXYt4wcD6zrQElDPhFuZgfA==}
@@ -817,6 +825,8 @@ snapshots:
       ora: 6.3.1
       prompts: 2.4.2
       zod: 3.23.8
+
+  '@stripe/stripe-js@https://codeload.github.com/stripe/stripe-js/tar.gz/1ebe69fbacb1ad082801a6b7f71f2318e0d53750': {}
 
   ansi-regex@6.0.1: {}
 
