@@ -1,3 +1,4 @@
+
 "use client";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
@@ -10,15 +11,12 @@ import {
 } from "@clerk/nextjs";
 import Link from "next/link";
 
-
 //----------stripe import----
-
 import getStripe from "@/lib/stripe/get-stripe";
 
 //--------------------------
 
 export default function Home() {
-
 
   //-----------------stripe function----------------
   const handleSubmit = async () => {
@@ -43,10 +41,10 @@ export default function Home() {
   };
   //------------------------------------
 
-
   return (
-    <div className="relative min-h-screen p-4">
-      {/* Top-left logo and title */}
+    <div className="relative min-h-screen">
+      <nav className="absolute top-0 left-0 right-0 flex items-center justify-between p-4">
+        {/* Top-left logo and title */}
       <div className="absolute top-4 left-4 flex items-center space-x-2">
         <svg
           className="w-8 h-8"
@@ -64,7 +62,14 @@ export default function Home() {
         <h1 className="text-2xl font-extrabold tracking-tight lg:text-3xl">
           FlashFlorte
         </h1>
+
       </div>
+         {/* Tab Naviagation */}
+         <div className="flex-1 top-4 flex justify-center space-x-20">
+          <a href="#home" className="text-lg font-semibold">Home</a>
+          <a href="#features" className="text-lg font-semibold">Features</a>
+          <a href="#pricing" className="text-lg font-semibold">Pricing</a>
+        </div> 
 
       {/* Top-right controls */}
       <div className="absolute top-4 right-4 flex items-center space-x-4">
@@ -85,8 +90,11 @@ export default function Home() {
         </SignedOut>
       </div>
 
+      </nav>
+      
+
       {/* Centered content */}
-      <div className="my-20 flex items-center justify-center">
+      <div id="home" className="flex flex-col items-center justify-center min-h-screen text-center p-4">
         <div className="flex flex-col items-center justify-center text-center">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
             FlashFlorte
@@ -106,9 +114,10 @@ export default function Home() {
       </div>
 
       {/* Features section */}
-      <div className="mt-16 px-4">
+      <div id="features" className="mt-16 px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Feature cards */}
           <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
             <svg
               className="w-12 h-12 text-green-500 mb-4"
@@ -174,61 +183,53 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+      
       {/* Pricing section */}
-      <div className="mt-16 px-4">
-  <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
-  <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
-    <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
-      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-        Basic Version
-      </h3>
-      <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
-        $7/month
-      </p>
-      <ul className="text-gray-600 dark:text-gray-300 mb-6">
-        <li>Access to basic features</li>
-        <li>Limited storage</li>
-        <li>Basic support</li>
-      </ul>
-      <Button
-        className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-        onClick={handleSubmit}
-      >
-        Get Started
-      </Button>
-    </div>
-    <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
-      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-        Pro Version
-      </h3>
-      <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
-        $10/month
-      </p>
-      <ul className="text-gray-600 dark:text-gray-300 mb-6">
-        <li>Access to all features</li>
-        <li>Unlimited flashcards</li>
-        <li>Premium support</li>
-      </ul>
-      <Button
-        className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-        onClick={handleSubmit}
-      >
-        Choose Pro
-      </Button>
-    </div>
-  </div>
-</div>
-
-   
-      {/* Copyright section */}
-      <footer className="mt-16 px-4 py-8 bg-slate-100 dark:bg-gray-800">
-        <div className="max-w-4xl mx-auto text-center">
-          <p className="text-gray-600 dark:text-gray-400">
-            © 2024 FlashFlorte. All rights reserved.
-          </p>
+      <div id="pricing" className="mt-16 px-4">
+        <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
+          <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              Basic Version
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
+              $7/month
+            </p>
+            <ul className="text-gray-600 dark:text-gray-300 mb-6">
+              <li>Access to basic features</li>
+              <li>Limited storage</li>
+              <li>Basic support</li>
+            </ul>
+            <Button
+              className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+              onClick={handleSubmit}
+            >
+              Get Started
+            </Button>
+          </div>
+          <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              Pro Version
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
+              $15/month
+            </p>
+            <ul className="text-gray-600 dark:text-gray-300 mb-6">
+              <li>All features from Basic Version</li>
+              <li>Unlimited storage</li>
+              <li>Priority support</li>
+            </ul>
+            <Button
+              className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+              onClick={handleSubmit}
+            >
+              Get Started
+            </Button>
+          </div>
         </div>
-      </footer>
+      </div>
     </div>
   );
 }
+
+
