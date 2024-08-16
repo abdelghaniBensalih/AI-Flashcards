@@ -11,6 +11,8 @@ import {
 } from "@clerk/nextjs";
 import Link from "next/link";
 
+import { useState, useEffect } from "react";
+
 //----------stripe import----
 import getStripe from "@/lib/stripe/get-stripe";
 
@@ -23,7 +25,9 @@ export default function Home() {
     const checkoutSession = await fetch("/api/checkout_session", {
       method: "POST",
     });
+    const [isOpen, setIsOpen] = useState(false);
 
+    
     const checkoutSessionJson = await checkoutSession.json();
 
     if (checkoutSession.status === 500) {
@@ -44,6 +48,7 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
 
+      {/* Navigation */}
       <nav className="absolute top-0 left-0 right-0 flex items-center justify-between p-4">
         {/* Top-left logo and title */}
       <div className="absolute top-4 left-4 flex items-center space-x-2">
@@ -64,13 +69,15 @@ export default function Home() {
           FlashFlorte
         </h1>
 
+        
+
       </div>
          {/* Tab Naviagation */}
          <div className="flex-1 top-4 flex justify-center space-x-20">
           <a href="#home" className="text-lg font-semibold">Home</a>
           <a href="#features" className="text-lg font-semibold">Features</a>
           <a href="#pricing" className="text-lg font-semibold">Pricing</a>
-        </div> 
+      </div> 
 
       {/* Top-right controls */}
       <div className="absolute top-4 right-4 flex items-center space-x-4">
@@ -92,9 +99,8 @@ export default function Home() {
       </div>
 
       </nav>
-      
 
-      {/* Centered content */}
+      {/* Title content */}
       <div id="home" className="flex flex-col items-center justify-center min-h-screen text-center p-4">
         <div className="flex flex-col items-center justify-center text-center">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
@@ -116,7 +122,7 @@ export default function Home() {
 
       {/* Features section */}
       <div id="features" className="flex flex-col items-center min-h-screen text-center p-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Features</h2>
+        <h2 className="text-3xl font-bold mb-16 text-center">Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Feature cards */}
           <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
@@ -200,7 +206,7 @@ export default function Home() {
               AI Generated Flashcards
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Easily create your own flashcards with our intuitive interface.
+            Create customized flashcards with AI-generated content.
             </p>
           </div>
           <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
@@ -221,7 +227,7 @@ export default function Home() {
               Notes-to-Flashcards
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Transform your own notes into Flashcards.
+            Effortlessly convert your notes into flashcards to streamline your study sessions
             </p>
           </div>
           
@@ -229,8 +235,10 @@ export default function Home() {
       </div>
       
       {/* Pricing section */}
-      <div id="pricing" className="flex flex-col items-center justify-center min-h-screen text-center p-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
+      <div id="pricing" className="flex flex-col items-center min-h-screen text-center p-4">
+        <h2 className="text-3xl font-bold mb-16 text-center">Pricing</h2>
+        <p className="text-lg mb-8 max-w-lg">Choose from our budget-friendly plans that offer great value while catering to your learning needs. Whether you need basic features or advanced tools, we have a plan to fit your requirements.</p>
+
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
           <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
@@ -256,7 +264,7 @@ export default function Home() {
               Pro Version
             </h3>
             <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
-              $15/month
+              $10/month
             </p>
             <ul className="text-gray-600 dark:text-gray-300 mb-6">
               <li>All features from Basic Version</li>
@@ -272,8 +280,14 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <footer className="mt-16 px-4 py-8 bg-slate-100 dark:bg-gray-800">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-gray-600 dark:text-gray-400">
+            © 2024 FlashFlorte. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
-
 
