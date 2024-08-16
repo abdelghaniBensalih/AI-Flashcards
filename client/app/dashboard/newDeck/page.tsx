@@ -15,7 +15,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 
 export default function Page() {
   const [description, setDescription] = useState("");
-  const [pdf, setPdf] = useState<File>();
+  const [file, setFile] = useState<File>();
   const [deck, setDeck] = useState<Deck>();
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertMessage, setAlertMessage] = useState("");
@@ -34,11 +34,11 @@ export default function Page() {
   };
 
   const handleSubmit = async () => {
-    if (description === "" && !pdf) {
+    if (description === "" && !file) {
       setAlertMessage("Please enter a description or upload an image.");
       setAlertVisible(true);
       return;
-    } else if (description !== "" && pdf) {
+    } else if (description !== "" && file) {
       setAlertMessage(
         "Please enter either a description or upload an image, not both."
       );
@@ -47,20 +47,23 @@ export default function Page() {
     } else if (description !== "") {
       generateDeckFromText(description);
     } else {
-      const formData = new FormData();
-      formData.append("image", pdf as Blob);
-      fetch("/api/generateDeckFromImage", {
-        method: "POST",
-        body: formData,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-
-          // generateDeckFromText(
-          //   `This is XML data, IGNORE THE XML TAGS, only look at the text within them: ${data[0]}`
-          // );
-        });
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64String = e.target?.result;
+        fetch("/api/generateDeckFromFile", {
+          method: "POST",
+          body: JSON.stringify({ base64String: base64String }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            let fullText = "";
+            data.data.ParsedResults.forEach((result: any) => {
+              fullText += result.ParsedText;
+            });
+            generateDeckFromText(fullText);
+          });
+      };
+      reader.readAsDataURL(file as Blob);
     }
   };
 
@@ -130,8 +133,18 @@ export default function Page() {
             placeholder="Create a deck about planets..."
             id="image"
             type="file"
-            accept="application/pdf"
-            onChange={(e) => {}}
+            accept="image/*, application/pdf"
+            onChange={(e) => {
+              if (e.target.files && e.target.files[0].size / 1000 > 1024) {
+                setAlertMessage(
+                  "File size too large. Please upload a file less than 1MB. Otherwise, upload a PDF less than 3 pages."
+                );
+                setAlertVisible(true);
+                return;
+              } else {
+                setFile(e.target.files![0]);
+              }
+            }}
           />
           <Button
             className="justify-self-end w-full"
@@ -143,7 +156,7 @@ export default function Page() {
       </div>
       <div className="flex flex-col items-center">
         <div className="w-full flex flex-wrap gap-4 justify-center">
-          {deck &&
+          {deck !== undefined ? (
             deck.cards.map((card, index) => (
               <div className="flip-card" key={index}>
                 <div className="flip-card-inner">
@@ -159,7 +172,10 @@ export default function Page() {
                   </Card>
                 </div>
               </div>
-            ))}
+            ))
+          ) : (
+            <div></div>
+          )}
         </div>
         {deck && (
           <div className="flex justify-center mt-4">
