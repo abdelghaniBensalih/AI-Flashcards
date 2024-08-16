@@ -80,7 +80,7 @@ const ResultPage = () => {
       <h1 className="text-3xl font-extrabold text-red-600 dark:text-red-400 mb-2">Payment Failed 😞</h1>
       <p className="text-gray-600 dark:text-gray-300 mb-4">Oops! Something went wrong with your payment. Please try again or contact support if the issue persists.</p>
       <div className="flex justify-center space-x-4 mt-6 pb-7">
-        <Link href=" ">
+        <Link href="#">
           <Button
             className="bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-2 px-6 rounded-lg"
           >
@@ -92,7 +92,7 @@ const ResultPage = () => {
           <Button
             className="bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-2 px-8 rounded-full shadow-md transition duration-200 ease-in-out transform hover:scale-105"
           >
-            Return to Home
+            Return Home
           </Button>
         </Link>
       </div>

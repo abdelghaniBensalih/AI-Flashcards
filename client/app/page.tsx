@@ -21,7 +21,7 @@ export default function Home() {
 
 
   //-----------------stripe function----------------
-  const handeleSubmit = async () => {
+  const handleSubmit = async () => {
     const checkoutSession = await fetch("/api/checkout_session", {
       method: "POST",
     });
@@ -176,67 +176,51 @@ export default function Home() {
       </div>
 
       {/* Pricing section */}
-      <div id="pricing" className="mt-16 px-4">
-        <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-              Basic
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
-              $7/month
-            </p>
-            <ul className="text-gray-600 dark:text-gray-300 mb-6">
-              <li>Access to basic features</li>
-              <li>Limited storage</li>
-              <li>Basic support</li>
-            </ul>
-            <Button
-              className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-              onClick={handeleSubmit}
-            >
-              Get Started
-            </Button>
-          </div>
-          <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-              Pro
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
-              $7/month
-            </p>
-            <ul className="text-gray-600 dark:text-gray-300 mb-6">
-              <li>Access to all features</li>
-              <li>Unlimited flashcards</li>
-              <li>Premium support</li>
-            </ul>
-            <Button
-              className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-              onClick={handeleSubmit}
-            >
-              Choose Pro
-            </Button>
-          </div>
-          <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-              Enterprise
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
-              Contact us for pricing
-            </p>
-            <ul className="text-gray-600 dark:text-gray-300 mb-6">
-              <li>Access to all features</li>
-              <li>Unlimited flashcards</li>
-              <li>Premium support</li>
-              <li>Advanced analytics</li>
-              <li>Custom branding</li>
-            </ul>
-            <Button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </div>
+      <div className="mt-16 px-4">
+  <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
+  <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
+    <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+        Free Version
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
+        $0
+      </p>
+      <ul className="text-gray-600 dark:text-gray-300 mb-6">
+        <li>Access to basic features</li>
+        <li>Limited storage</li>
+        <li>Basic support</li>
+      </ul>
+      <Button
+        className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+        onClick={handleSubmit}
+      >
+        Get Started
+      </Button>
+    </div>
+    <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+        Pro Version
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
+        $7/month
+      </p>
+      <ul className="text-gray-600 dark:text-gray-300 mb-6">
+        <li>Access to all features</li>
+        <li>Unlimited flashcards</li>
+        <li>Premium support</li>
+      </ul>
+      <Button
+        className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+        onClick={handleSubmit}
+      >
+        Choose Pro
+      </Button>
+    </div>
+  </div>
+</div>
+
+   
       {/* Copyright section */}
       <footer className="mt-16 px-4 py-8 bg-slate-100 dark:bg-gray-800">
         <div className="max-w-4xl mx-auto text-center">
