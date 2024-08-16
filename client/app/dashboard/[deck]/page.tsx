@@ -20,7 +20,7 @@ import { Slider } from "@/components/ui/slider";
 import { Progress } from "@/components/ui/progress";
 
 export default function Page() {
-  const deckName = (useParams().deck as string).replace("-", " ");
+  const deckName = (useParams().deck as string).replaceAll("-", " ");
   const { user } = useUser();
   const userId = user?.id as string;
 
@@ -125,7 +125,7 @@ export default function Page() {
             min={0}
             max={deck.cards.length - 1}
             onChange={handleSliderChange}
-            className="w-full mt-4"
+            className="w-full mt-8"
           />
         </div>
       ) : (

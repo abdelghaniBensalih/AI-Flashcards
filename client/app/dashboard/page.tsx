@@ -1,4 +1,3 @@
-
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -69,7 +68,7 @@ export default function Page() {
                 </CardContent>
                 <CardFooter className="w-full flex flex-col">
                   <Link
-                    href={`/dashboard/${deck.name.replace(" ", "-")}`}
+                    href={`/dashboard/${deck.name.replaceAll(" ", "-")}`}
                     className="w-full"
                   >
                     <Button className="w-full">Study Now</Button>
