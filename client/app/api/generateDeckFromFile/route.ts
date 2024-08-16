@@ -3,7 +3,7 @@ export async function POST(request: Request) {
   const formData = new FormData();
   formData.append("base64Image", base64String as string);
   formData.append("language", "eng");
-  formData.append("apikey", "K82767501088957");
+  formData.append("apikey", process.env.OCR_API_KEY as string);
   formData.append("OCREngine", "2");
 
   const data = await fetch("https://api.ocr.space/parse/image", {
