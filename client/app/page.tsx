@@ -43,6 +43,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen">
+
       <nav className="absolute top-0 left-0 right-0 flex items-center justify-between p-4">
         {/* Top-left logo and title */}
       <div className="absolute top-4 left-4 flex items-center space-x-2">
@@ -114,7 +115,7 @@ export default function Home() {
       </div>
 
       {/* Features section */}
-      <div id="features" className="mt-16 px-4">
+      <div id="features" className="flex flex-col items-center min-h-screen text-center p-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Features</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Feature cards */}
@@ -181,11 +182,54 @@ export default function Home() {
               Review your flashcards to reinforce your learning and retention.
             </p>
           </div>
+          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+            <svg
+              className="w-12 h-12 text-green-500 mb-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M4 4h16v16H4z" />
+              <path d="M8 4v16M16 4v16" />
+            </svg>
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              AI Generated Flashcards
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Easily create your own flashcards with our intuitive interface.
+            </p>
+          </div>
+          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
+            <svg
+              className="w-12 h-12 text-green-500 mb-4"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M4 4h16v16H4z" />
+              <path d="M8 4v16M16 4v16" />
+            </svg>
+            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+              Notes-to-Flashcards
+            </h3>
+            <p className="text-gray-600 dark:text-gray-300">
+              Transform your own notes into Flashcards.
+            </p>
+          </div>
+          
         </div>
       </div>
       
       {/* Pricing section */}
-      <div id="pricing" className="mt-16 px-4">
+      <div id="pricing" className="flex flex-col items-center justify-center min-h-screen text-center p-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
           <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
