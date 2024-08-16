@@ -10,15 +10,16 @@ import {
 } from "@clerk/nextjs";
 import Link from "next/link";
 
-//----------stripe import-----
-import { loadStripe } from "@stripe/stripe-js";
-import { get } from "http";
+
+//----------stripe import----
 
 import getStripe from "@/lib/stripe/get-stripe";
 
 //--------------------------
 
 export default function Home() {
+
+
   //-----------------stripe function----------------
   const handeleSubmit = async () => {
     const checkoutSession = await fetch("/api/checkout_session", {
@@ -40,8 +41,9 @@ export default function Home() {
       console.error(error.message);
     }
   };
-
   //------------------------------------
+
+
   return (
     <div className="relative min-h-screen p-4">
       {/* Top-left logo and title */}
@@ -174,7 +176,7 @@ export default function Home() {
       </div>
 
       {/* Pricing section */}
-      <div className="mt-16 px-4">
+      <div id="pricing" className="mt-16 px-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
