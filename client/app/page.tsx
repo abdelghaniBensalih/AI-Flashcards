@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,36 +16,32 @@ import { get } from "http";
 
 import getStripe from "@/lib/stripe/get-stripe";
 
-
 //--------------------------
 
 export default function Home() {
-//-----------------stripe function----------------
+  //-----------------stripe function----------------
   const handeleSubmit = async () => {
     const checkoutSession = await fetch("/api/checkout_session", {
       method: "POST",
-      headers: {
-        origin:"http://localhost:3000",
-      },
-    })
+    });
 
-    const checkoutSessionJson = await checkoutSession.json()
+    const checkoutSessionJson = await checkoutSession.json();
 
-    if (checkoutSession.statusCode === 500) {
-      console.error(checkoutSessionJson.message)
-      return 
+    if (checkoutSession.status === 500) {
+      console.error(checkoutSessionJson.message);
+      return;
     }
-    const stripe = await getStripe()
+    const stripe = await getStripe();
     const { error } = await stripe.redirectToCheckout({
-      sessionId: checkoutSessionJson.id
-    })
+      sessionId: checkoutSessionJson.id,
+    });
 
     if (error) {
-      console.error(error.message)
+      console.error(error.message);
     }
-  }
+  };
 
-//------------------------------------
+  //------------------------------------
   return (
     <div className="relative min-h-screen p-4">
       {/* Top-left logo and title */}
@@ -193,11 +189,11 @@ export default function Home() {
               <li>Limited storage</li>
               <li>Basic support</li>
             </ul>
-            <Button 
-            className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-            onClick={handeleSubmit}
+            <Button
+              className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+              onClick={handeleSubmit}
             >
-             Get Started
+              Get Started
             </Button>
           </div>
           <div className="flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
@@ -213,9 +209,9 @@ export default function Home() {
               <li>Premium support</li>
             </ul>
             <Button
-             className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-             onClick={handeleSubmit}
-             >
+              className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+              onClick={handeleSubmit}
+            >
               Choose Pro
             </Button>
           </div>
@@ -233,9 +229,7 @@ export default function Home() {
               <li>Advanced analytics</li>
               <li>Custom branding</li>
             </ul>
-            <Button
-             className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
-             >
+            <Button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded">
               Contact Us
             </Button>
           </div>
@@ -243,11 +237,11 @@ export default function Home() {
       </div>
       {/* Copyright section */}
       <footer className="mt-16 px-4 py-8 bg-slate-100 dark:bg-gray-800">
-           <div className="max-w-4xl mx-auto text-center">
-              <p className="text-gray-600 dark:text-gray-400">
-               © 2024 FlashFlorte. All rights reserved.
-              </p>
-           </div>
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-gray-600 dark:text-gray-400">
+            © 2024 FlashFlorte. All rights reserved.
+          </p>
+        </div>
       </footer>
     </div>
   );

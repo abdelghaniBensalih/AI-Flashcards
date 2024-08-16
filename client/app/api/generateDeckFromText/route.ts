@@ -25,6 +25,7 @@ const prompt = `
 
 export async function POST(request: Request) {
   const deckDescription: string = (await request.json()).description;
+  console.log(deckDescription);
 
   // Batch and stream are also supported
   const res = await model.invoke([
