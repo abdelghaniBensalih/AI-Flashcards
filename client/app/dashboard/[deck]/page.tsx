@@ -9,10 +9,15 @@ import { useUser } from "@clerk/nextjs";
 import { Deck } from "@/lib/interfaces/interfaces";
 import { useEffect, useState } from "react";
 import { getDeck } from "@/lib/firebase/crud";
-import { Card,CardHeader,CardContent, CardFooter } from "@/components/ui/card";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Slider } from "@/components/ui/slider"
-
+import { Slider } from "@/components/ui/slider";
+import { Progress } from "@/components/ui/progress";
 
 export default function Page() {
   const deckName = (useParams().deck as string).replace("-", " ");
@@ -38,6 +43,7 @@ export default function Page() {
     if (deck && currentCardIndex < deck.cards.length - 1) {
       setCurrentCardIndex(currentCardIndex + 1);
     }
+    console.log(deck?.cards.length);
   };
 
   const handlePreviousCard = () => {
@@ -51,18 +57,12 @@ export default function Page() {
     setIsFlipped(false);
     setCurrentCardIndex(index);
   };
-  // const handleSliderChange = (value: number) => {
-  //   setIsFlipped(false);
-  //   setCurrentCardIndex(value);
-  // };
-
 
   useEffect(() => {
     if (userId) {
       getDeck(userId, deckName, setDeck);
     }
   }, [userId]);
-
 
   return (
     <div className="flex flex-col items-center h-screen">
@@ -76,7 +76,7 @@ export default function Page() {
           {deckName}
         </h1>
         <div className="flex items-center space-x-4">
-          <ModeToggle /> 
+          <ModeToggle />
           <UserButton />
         </div>
       </div>
@@ -104,7 +104,10 @@ export default function Page() {
           </Card>
 
           <div className="flex justify-between items-center mt-4 w-80">
-            <Button onClick={handlePreviousCard} disabled={currentCardIndex === 0}>
+            <Button
+              onClick={handlePreviousCard}
+              disabled={currentCardIndex === 0}
+            >
               ← Previous
             </Button>
             <p>
@@ -117,26 +120,14 @@ export default function Page() {
               Next →
             </Button>
           </div>
-          <input
-              type="range"
-              min="0"
-              max={deck.cards.length - 1}
-              value={currentCardIndex}
-              onChange={handleSliderChange}
-              className="w-full mt-4"
-            />
-            {/* <Slider
-              min={0}
-              max={deck.cards.length - 1}
-              value={currentCardIndex}
-              onChange={handleSliderChange}
-              className="mt-4"
-              style={{ height: '6px', backgroundColor: '#000', color: '#000' }} // Customize styles here
-              thumbStyle={{ width: '20px', height: '20px', backgroundColor: '#000' }} // Customize thumb styles here
-            /> */}
-         
+          <Progress
+            value={(currentCardIndex / (deck.cards.length - 1)) * 100}
+            min={0}
+            max={deck.cards.length - 1}
+            onChange={handleSliderChange}
+            className="w-full mt-4"
+          />
         </div>
-        
       ) : (
         <p>No cards available for this deck.</p>
       )}
