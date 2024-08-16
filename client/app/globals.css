@@ -109,3 +109,5 @@
   width: 20rem /* 240px */;
   height: 20rem /* 240px */;
 }
+
+body { @apply !min-w-full; }

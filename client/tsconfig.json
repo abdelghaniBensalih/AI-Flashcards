@@ -26,7 +26,12 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
+<<<<<<< Updated upstream
+    "firebase.ts",
+    "app/api/checkout_session/route.js"
+=======
     "firebase.ts"
+>>>>>>> Stashed changes
   ],
   "exclude": ["node_modules"]
 }
