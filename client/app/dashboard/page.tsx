@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/card";
 import { ChevronLeft } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Page() {
   const [decks, setDecks] = useState<Deck[]>();
@@ -51,7 +52,7 @@ export default function Page() {
         <Button className="max-w-min mx-auto">Create a new deck</Button>
       </Link>
       <div className="grid grid-cols-3 gap-4">
-        {decks &&
+        {decks ? (
           decks.map((deck, index) => {
             return (
               <Card key={index}>
@@ -87,7 +88,10 @@ export default function Page() {
                 </CardFooter>
               </Card>
             );
-          })}
+          })
+        ) : (
+          <Skeleton className="w-full " />
+        )}
       </div>
     </div>
   );

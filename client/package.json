@@ -12,15 +12,21 @@
     "@clerk/nextjs": "^5.3.0",
     "@firebase/analytics": "^0.10.7",
     "@firebase/firestore": "^4.6.5",
+<<<<<<< HEAD
 <<<<<<< Updated upstream
+=======
+>>>>>>> db5263b (connected image OCR)
     "@hookform/resolvers": "^3.9.0",
     "@langchain/google-genai": "^0.0.25",
     "@radix-ui/react-dropdown-menu": "^2.1.1",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-select": "^2.1.1",
+<<<<<<< HEAD
 =======
     "@radix-ui/react-dropdown-menu": "^2.1.1",
 >>>>>>> Stashed changes
+=======
+>>>>>>> db5263b (connected image OCR)
     "@radix-ui/react-slot": "^1.1.0",
     "@stripe/stripe-js": "^4.3.0",
     "class-variance-authority": "^0.7.0",
