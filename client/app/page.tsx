@@ -25,7 +25,7 @@ export default function Home() {
     const checkoutSession = await fetch("/api/checkout_session", {
       method: "POST",
     });
-    const [isOpen, setIsOpen] = useState(false);
+
 
     
     const checkoutSessionJson = await checkoutSession.json();
