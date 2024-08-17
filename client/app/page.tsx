@@ -122,122 +122,122 @@ export default function Home() {
 
       {/* Features section */}
       <div id="features" className="flex flex-col items-center min-h-screen text-center p-4">
-        <h2 className="text-3xl font-bold mb-16 text-center">Features</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Feature cards */}
-          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-            <svg
-              className="w-12 h-12 text-green-500 mb-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 4h16v16H4z" />
-              <path d="M8 4v16M16 4v16" />
-            </svg>
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-              Create Flashcards
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              Easily create your own flashcards with our intuitive interface.
-            </p>
-          </div>
-          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-            <svg
-              className="w-12 h-12 text-green-500 mb-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 6h16v12H4z" />
-              <path d="M12 6v12M8 12h8" />
-            </svg>
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-              Manage Decks
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              Organize and manage your flashcard decks with ease.
-            </p>
-          </div>
-          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-            <svg
-              className="w-12 h-12 text-green-500 mb-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M12 22l10-5V7L12 2 2 7v10l10 5z" />
-            </svg>
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-              Review Flashcards
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-              Review your flashcards to reinforce your learning and retention.
-            </p>
-          </div>
-          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-            <svg
-              className="w-12 h-12 text-green-500 mb-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 4h16v16H4z" />
-              <path d="M8 4v16M16 4v16" />
-            </svg>
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-              AI Generated Flashcards
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-            Create customized flashcards with AI-generated content.
-            </p>
-          </div>
-          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 hover:shadow-lg transition-shadow duration-300">
-            <svg
-              className="w-12 h-12 text-green-500 mb-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 4h16v16H4z" />
-              <path d="M8 4v16M16 4v16" />
-            </svg>
-            <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-              Notes-to-Flashcards
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300">
-            Effortlessly convert your notes into flashcards to streamline your study sessions
-            </p>
-          </div>
-          
-        </div>
-      </div>
+  <h2 className="text-3xl font-bold mb-16 text-center">Features</h2>
+  <div className="flex flex-wrap justify-center gap-8">
+    <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
+      <svg
+        className="w-12 h-12 text-green-500 mb-4"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M4 4h16v16H4z" />
+        <path d="M8 4v16M16 4v16" />
+      </svg>
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+        Create Flashcards
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300">
+        Easily create your own flashcards with our intuitive interface.
+      </p>
+    </div>
+    <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
+      <svg
+        className="w-12 h-12 text-green-500 mb-4"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M4 6h16v12H4z" />
+        <path d="M12 6v12M8 12h8" />
+      </svg>
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+        Manage Decks
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300">
+        Organize and manage your flashcard decks with ease.
+      </p>
+    </div>
+    <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
+      <svg
+        className="w-12 h-12 text-green-500 mb-4"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+        <path d="M12 22l10-5V7L12 2 2 7v10l10 5z" />
+      </svg>
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+        Review Flashcards
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300">
+        Review your flashcards to reinforce your learning and retention.
+      </p>
+    </div>
+    <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
+      <svg
+        className="w-12 h-12 text-green-500 mb-4"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M4 4h16v16H4z" />
+        <path d="M8 4v16M16 4v16" />
+      </svg>
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+        AI Generated Flashcards
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300">
+        Create customized flashcards with AI-generated content.
+      </p>
+    </div>
+    <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
+      <svg
+        className="w-12 h-12 text-green-500 mb-4"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M4 4h16v16H4z" />
+        <path d="M8 4v16M16 4v16" />
+      </svg>
+      <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
+        Notes-to-Flashcards
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300">
+        Effortlessly convert your notes into flashcards to streamline your study sessions.
+      </p>
+    </div>
+    
+  </div>
+</div>
+
       
       {/* Pricing section */}
       <div id="pricing" className="flex flex-col items-center min-h-screen text-center p-4">
-        <h2 className="text-3xl font-bold mb-16 text-center">Pricing</h2>
-        <p className="text-lg mb-8 max-w-lg">Choose from our budget-friendly plans that offer great value while catering to your learning needs. Whether you need basic features or advanced tools, we have a plan to fit your requirements.</p>
+        <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
+        <p className="text-lg mb-16 max-w-lg">Choose from our budget-friendly plans that offer great value while catering to your learning needs. Whether you need basic features or advanced tools, we have a plan to fit your requirements.</p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
           <div className="flex-1 max-w-md flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-8 w-[400px] text-center hover:shadow-lg transition-shadow duration-300">
