@@ -19,7 +19,7 @@ import getStripe from "@/lib/stripe/get-stripe";
 //--------------------------
 
 export default function Home() {
-  
+
 
   //-----------------stripe function----------------
   const handleSubmit = async () => {
