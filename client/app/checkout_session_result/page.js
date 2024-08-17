@@ -56,15 +56,15 @@ const ResultPage = () => {
       <p className="text-gray-700 dark:text-gray-300 mb-2">Thank you for your purchase! You're all set to start enhancing your study sessions.</p>
       <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">Session ID: {sessionId}</p>
       <p className="text-gray-700 dark:text-gray-300 mb-6">We have received your payment. You will receive an email with the order details shortly.</p>
-      <div className="flex space-x-4">
+      <div className="flex space-x-4 justify-center">
         <Link href="/dashboard">
-          <Button className="bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-2 px-6 rounded-lg">
+          <Button className="font-semibold py-2 px-8 rounded-full shadow-md transition duration-200 ease-in-out transform hover:scale-105 w-auto whitespace-nowrap">
             View Decks
           </Button>
         </Link>
 
         <Link href="/">
-          <Button className="bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-2 px-6 rounded-lg">
+          <Button className="font-semibold py-2 px-8 rounded-full shadow-md transition duration-200 ease-in-out transform hover:scale-105 w-auto whitespace-nowrap">
             Return to Home
           </Button>
         </Link>
