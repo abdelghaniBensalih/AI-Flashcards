@@ -51,29 +51,27 @@ const ResultPage = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
   {session && session.payment_status === 'paid' ? (
-   <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg text-center max-w-md mx-auto">
-    
-   <h1 className="text-2xl md:text-3xl font-bold text-green-600 dark:text-green-400 mb-4">Payment Successful! 🎉</h1>
-   <p className="text-gray-700 dark:text-gray-300 mb-2 text-sm md:text-base">Thank you for your purchase! You're all set to start enhancing your study sessions.</p>
-   <p className="text-gray-600 dark:text-gray-400 text-xs md:text-sm mb-4">Session ID: {sessionId}</p>
-   <p className="text-gray-700 dark:text-gray-300 mb-6 text-sm md:text-base">We have received your payment. You will receive an email with the order details shortly.</p>
-   <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center">
-     <Link href="/dashboard">
-       <Button className="font-semibold py-2 px-6 md:px-8 rounded-full shadow-md transition duration-200 ease-in-out transform hover:scale-105 w-full md:w-auto whitespace-nowrap">
-         View Decks
-       </Button>
-     </Link>
+    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-md text-center">
+      <h1 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-4">Payment Successful! 🎉</h1>
+      <p className="text-gray-700 dark:text-gray-300 mb-2">Thank you for your purchase! You're all set to start enhancing your study sessions.</p>
+      <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">Session ID: {sessionId}</p>
+      <p className="text-gray-700 dark:text-gray-300 mb-6">We have received your payment. You will receive an email with the order details shortly.</p>
+      <div className="flex space-x-4">
+        <Link href="/dashboard">
+          <Button className="bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-2 px-6 rounded-lg">
+            View Decks
+          </Button>
+        </Link>
 
-     <Link href="/">
-       <Button className="font-semibold py-2 px-6 md:px-8 rounded-full shadow-md transition duration-200 ease-in-out transform hover:scale-105 w-full md:w-auto whitespace-nowrap">
-         Return to Home
-       </Button>
-     </Link>
-   </div>
- </div>
-    
+        <Link href="/">
+          <Button className="bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-2 px-6 rounded-lg">
+            Return to Home
+          </Button>
+        </Link>
+      </div>
+    </div>
   ) : (
-    <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg text-center max-w-md mx-auto">
+    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center max-w-md mx-auto">
       <div className="flex justify-center items-center mb-4">
         <svg className="w-12 h-12 text-red-600 dark:text-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m0-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
