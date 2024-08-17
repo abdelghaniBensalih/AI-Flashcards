@@ -27,7 +27,6 @@ export default function Home() {
     });
 
 
-    
     const checkoutSessionJson = await checkoutSession.json();
 
     if (checkoutSession.status === 500) {

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { createDeck, deleteDeck, getDecks } from "@/lib/firebase/crud";
 import { UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
-import { useEffect, useId, useState } from "react";
+import { useEffect, useState } from "react";
 import { Deck } from "@/lib/interfaces/interfaces";
 import {
   Card,
@@ -31,30 +31,32 @@ export default function Page() {
   }, [userId]);
 
   return (
-    <div className="grid gap-10">
-      {" "}
-      <div className="flex flex-row items-center justify-between">
+    <div className="relative min-h-screen p-4">
+      {/* Header Section */}
+      <div className="absolute top-4 left-4 flex items-center space-x-4 z-10">
         <Link href="/">
-          <Button variant="outline" className="">
+          <Button variant="outline">
             <ChevronLeft />
           </Button>
-        </Link>{" "}
-        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl text-center">
+        </Link>
+      </div>
+
+      <div className="absolute top-4 right-4 flex items-center space-x-4 z-10">
+        <ModeToggle />
+        <UserButton />
+      </div>
+
+      <div className="flex flex-col items-center justify-center h-full pt-12">
+        <h1 className="scroll-m-20 text-3xl lg:text-4xl font-extrabold tracking-tight text-center">
           Your Cards
         </h1>
-        <div className="flex space-x-4">
-          <ModeToggle />
-          <UserButton />
-        </div>
-      </div>
-      <Link href="/dashboard/newDeck" className="mx-auto">
-        <Button className="max-w-min mx-auto">Create a new deck</Button>
-      </Link>
-      <div className="grid grid-cols-3 gap-4">
-        {decks ? (
-          decks.map((deck, index) => {
-            return (
-              <Card key={index}>
+        <Link href="/dashboard/newDeck" className="mx-auto mt-4">
+          <Button className="max-w-min mx-auto">Create a new deck</Button>
+        </Link>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+          {decks ? (
+            decks.map((deck, index) => (
+              <Card key={index} className="w-full">
                 <CardHeader>
                   <CardTitle>{deck.name}</CardTitle>
                   <CardDescription className="font-semibold">
@@ -86,11 +88,11 @@ export default function Page() {
                   </Button>
                 </CardFooter>
               </Card>
-            );
-          })
-        ) : (
-          <Skeleton className="w-full " />
-        )}
+            ))
+          ) : (
+            <Skeleton className="w-full" />
+          )}
+        </div>
       </div>
     </div>
   );
