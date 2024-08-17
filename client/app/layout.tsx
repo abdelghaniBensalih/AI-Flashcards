@@ -21,7 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      signInFallbackRedirectUrl="/checkAccount"
+      signUpFallbackRedirectUrl="/addAccount"
+    >
       <html lang="en">
         <body>
           <div

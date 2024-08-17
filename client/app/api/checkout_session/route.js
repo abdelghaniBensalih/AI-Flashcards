@@ -26,7 +26,7 @@ export async function POST(req) {
             product_data: {
               name: "Pro subscription",
             },
-            unit_amount: formatAmountForStripe(10, "usd"), // $10.00
+            unit_amount: formatAmountForStripe(5, "cad"), // $10.00
             recurring: {
               interval: "month",
               interval_count: 1,
@@ -38,10 +38,16 @@ export async function POST(req) {
 
       success_url: `${req.headers
         .get("Referer")
-        .replace("/?", "?")}checkout_session_result?session_id={CHECKOUT_SESSION_ID}`,
+        .replace(
+          "/?",
+          "?"
+        )}checkout_session_result?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers
         .get("Referer")
-        .replace("/?", "?")}checkout_session_result?session_id={CHECKOUT_SESSION_ID}`,
+        .replace(
+          "/?",
+          "?"
+        )}checkout_session_result?session_id={CHECKOUT_SESSION_ID}`,
     };
 
     const checkoutSession = await stripe.checkout.sessions.create(params);

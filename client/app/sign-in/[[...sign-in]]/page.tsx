@@ -1,4 +1,5 @@
 import { SignIn, SignUp } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 
 export default function SignUpPage() {
   return (
@@ -7,7 +8,7 @@ export default function SignUpPage() {
         Sign In
       </h1>
       <div className="mx-auto">
-        <SignIn />
+        <SignIn forceRedirectUrl={"/checkAccount"} />
       </div>
     </div>
   );
