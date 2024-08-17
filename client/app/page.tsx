@@ -10,7 +10,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import Link from "next/link";
-
+import ParticlesBackground from "@/components/ParticlesBackground";
 import { useState, useEffect } from "react";
 
 //----------stripe import----
@@ -19,6 +19,7 @@ import getStripe from "@/lib/stripe/get-stripe";
 //--------------------------
 
 export default function Home() {
+  
 
   //-----------------stripe function----------------
   const handleSubmit = async () => {
@@ -102,9 +103,11 @@ export default function Home() {
       {/* Title content */}
       <div id="home" className="flex flex-col items-center justify-center min-h-screen text-center p-4">
         <div className="flex flex-col items-center justify-center text-center">
+          
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
             FlashFlorte
           </h1>
+          <ParticlesBackground/>
           <p className="text-lg mb-8 max-w-lg">
             Discover a smarter way to study with FlashFlorte. Create, manage,
             and review your flashcards effortlessly to boost your learning and
