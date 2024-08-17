@@ -43,62 +43,69 @@ export default function Home() {
       console.error(error.message);
     }
   };
-  //------------------------------------
+  
 
   return (
     <div className="relative min-h-screen">
 
       {/* Navigation */}
-      <nav className="absolute top-0 left-0 right-0 flex items-center justify-between p-4">
-        {/* Top-left logo and title */}
-      <div className="absolute top-4 left-4 flex items-center space-x-2">
-        <svg
-          className="w-8 h-8"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 2L2 7l10 5 10-5-10-5z" />
-          <path d="M12 22l10-5V7L12 2 2 7v10l10 5z" />
-        </svg>
-        <h1 className="text-2xl font-extrabold tracking-tight lg:text-3xl">
-          FlashFlorte
-        </h1>
 
-        
+      <nav className="relative top-0 left-0 right-0 flex flex-col lg:flex-row items-center p-4">
+  {/* Top-left logo and title */}
+  <div className="flex items-center justify-between w-full lg:w-auto mb-4 lg:mb-0">
+    <div className="flex items-center space-x-2">
+      <svg
+        className="w-8 h-8"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+        <path d="M12 22l10-5V7L12 2 2 7v10l10 5z" />
+      </svg>
+      <h1 className="text-2xl font-extrabold tracking-tight lg:text-3xl">
+        FlashFlorte
+      </h1>
+    </div>
 
+    {/* Top-right controls */}
+    <div className="flex items-center space-x-4 lg:space-x-6">
+      <ModeToggle />
+      <SignedIn>
+        <UserButton />
+      </SignedIn>
+      <SignedOut>
+        <div className="flex space-x-4">
+          <Link href="/sign-in">
+            <Button>Login</Button>
+          </Link>
+          <Link href="/sign-up">
+            <Button>Sign Up</Button>
+          </Link>
+        </div>
+      </SignedOut>
+    </div>
+  </div>
+
+  {/* Tab Navigation */}
+  <div className="flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-20 lg:flex-1">
+    <a href="#home" className="text-lg font-semibold">Home</a>
+    <a href="#features" className="text-lg font-semibold">Features</a>
+    <a href="#pricing" className="text-lg font-semibold">Pricing</a>
+    <SignedIn>
+      <div className="lg:hidden mt-4">
+        <SignOutButton />
       </div>
-         {/* Tab Naviagation */}
-         <div className="flex-1 top-4 flex justify-center space-x-20">
-          <a href="#home" className="text-lg font-semibold">Home</a>
-          <a href="#features" className="text-lg font-semibold">Features</a>
-          <a href="#pricing" className="text-lg font-semibold">Pricing</a>
-      </div> 
+    </SignedIn>
+  </div>
+</nav>
 
-      {/* Top-right controls */}
-      <div className="absolute top-4 right-4 flex items-center space-x-4">
-        <ModeToggle />
-        <SignedIn>
-          <UserButton />
-          <SignOutButton />
-        </SignedIn>
-        <SignedOut>
-          <div className="flex space-x-4">
-            <Link href="/sign-in">
-              <Button>Login</Button>
-            </Link>
-            <Link href="/sign-up">
-              <Button>Sign Up</Button>
-            </Link>
-          </div>
-        </SignedOut>
-      </div>
 
-      </nav>
+  
 
       {/* Title content */}
       <div id="home" className="flex flex-col items-center justify-center min-h-screen text-center p-4">

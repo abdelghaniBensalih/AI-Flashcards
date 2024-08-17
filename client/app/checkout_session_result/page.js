@@ -71,7 +71,7 @@ const ResultPage = () => {
       </div>
     </div>
   ) : (
-    <div className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center max-w-md mx-auto">
+    <div className="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-lg shadow-lg text-center max-w-md mx-auto">
       <div className="flex justify-center items-center mb-4">
         <svg className="w-12 h-12 text-red-600 dark:text-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m0-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
