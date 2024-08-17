@@ -240,7 +240,7 @@ export default function Home() {
         <p className="text-lg mb-8 max-w-lg">Choose from our budget-friendly plans that offer great value while catering to your learning needs. Whether you need basic features or advanced tools, we have a plan to fit your requirements.</p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
-          <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+          <div className="flex-1 max-w-md flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-8 w-[400px] text-center hover:shadow-lg transition-shadow duration-300">
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
               Basic Version
             </h3>
@@ -259,7 +259,7 @@ export default function Home() {
               Get Started
             </Button>
           </div>
-          <div className="flex-1 max-w-sm flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-6 text-center hover:shadow-lg transition-shadow duration-300">
+          <div className="flex-1 max-w-md flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-8 w-[400px] text-center hover:shadow-lg transition-shadow duration-300">
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
               Pro Version
             </h3>
