@@ -9,6 +9,9 @@ export default function SignUpPage() {
       <div className="mx-auto">
         <SignUp />
       </div>
+      <p className="text-center font-bold">
+        This page will only be available once, make your account now.
+      </p>
     </div>
   );
 }

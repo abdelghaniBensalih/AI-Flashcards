@@ -66,13 +66,14 @@ const ResultPage = () => {
           </p>
           <p className="text-gray-700 dark:text-gray-300 mb-6">
             We have received your payment. You will receive an email with the
-            order details shortly.
+            order details shortly. <br />
+            <span className="font-bold">
+              Create your account now, you will not be able to sign up after.
+            </span>
           </p>
           <div className="flex space-x-4">
-            <Link href="/sign-up">
-              <Button className="bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-semibold py-2 px-6 rounded-lg">
-                Create an account
-              </Button>
+            <Link href="/sign-up" className="w-full">
+              <Button className="font-semibold">Create an account</Button>
             </Link>
           </div>
         </div>
