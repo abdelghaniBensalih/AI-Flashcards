@@ -1,6 +1,9 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useClerk, useUser } from "@clerk/nextjs";
+import { clerkClient } from "@clerk/nextjs/server";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function CheckAccountPage() {
@@ -18,9 +21,16 @@ export default function CheckAccountPage() {
         body: JSON.stringify({ userId: user.id }),
       })
         .then((response) => response.json())
-        .then((data) => {
+        .then(async (data) => {
           console.log(data);
           setExists(data.exists);
+
+          if (!exists) {
+            await fetch("/api/deleteUserFromClerk", {
+              method: "POST",
+              body: JSON.stringify({ userId: user.id }),
+            });
+          }
         });
     }
   }, [user]);
@@ -31,7 +41,16 @@ export default function CheckAccountPage() {
         Check Account
       </h1>
       <div className="mx-auto">
-        {exists ? "Account exists" : "Account does not exist"}
+        {exists ? (
+          "Account exists"
+        ) : (
+          <>
+            <p>Account does not exist, please pay before trying to log in</p>
+            <Link href={"/#pricing"} className="flex justify-center mt-4">
+              <Button>Payments page</Button>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );

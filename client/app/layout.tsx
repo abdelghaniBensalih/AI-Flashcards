@@ -22,8 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider
-      signInFallbackRedirectUrl="/checkAccount"
-      signUpFallbackRedirectUrl="/addAccount"
+      signInForceRedirectUrl={"/checkAccount"}
+      signUpForceRedirectUrl={"/checkAccount"}
     >
       <html lang="en">
         <body>
