@@ -1,5 +1,4 @@
-
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { UserButton, useUser } from "@clerk/nextjs";
@@ -12,6 +11,7 @@ import { Deck } from "@/lib/interfaces/interfaces";
 import { Card } from "@/components/ui/card";
 import { ModeToggle } from "@/components/mode-toggle";
 import checkmarkIcon from "@/public/checkmark.svg";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Page() {
   const [description, setDescription] = useState("");
@@ -19,6 +19,7 @@ export default function Page() {
   const [deck, setDeck] = useState<Deck>();
   const [notificationVisible, setNotificationVisible] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState("");
+  const [loading, setLoading] = useState(false);
   const { user } = useUser();
 
   const generateDeckFromText = (userDescription: string) => {
@@ -28,6 +29,7 @@ export default function Page() {
     })
       .then((res) => res.json())
       .then((data) => {
+        setLoading(false);
         setDeck(data);
       });
   };
@@ -44,11 +46,13 @@ export default function Page() {
       setNotificationVisible(true);
       return;
     } else if (description !== "") {
+      setLoading(true);
       generateDeckFromText(description);
     } else {
       const reader = new FileReader();
       reader.onload = async (e) => {
         const base64String = e.target?.result;
+        setLoading(true);
         fetch("/api/generateDeckFromFile", {
           method: "POST",
           body: JSON.stringify({ base64String: base64String }),
@@ -141,6 +145,7 @@ export default function Page() {
       </div>
       <div className="flex flex-col items-center">
         <div className="w-full flex flex-wrap gap-4 justify-center">
+          {loading && <Skeleton className="w-full h-96" />}
           {deck !== undefined ? (
             deck.cards.map((card, index) => (
               <div className="flip-card" key={index}>
@@ -172,11 +177,14 @@ export default function Page() {
       {/* Notification */}
       {notificationVisible && (
         <div className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-lg shadow-lg flex items-center space-x-3">
-          <img src={checkmarkIcon.src} alt="Checkmark icon" className="w-6 h-6"/>
+          <img
+            src={checkmarkIcon.src}
+            alt="Checkmark icon"
+            className="w-6 h-6"
+          />
           <span>{notificationMessage}</span>
         </div>
       )}
     </div>
   );
 }
-
