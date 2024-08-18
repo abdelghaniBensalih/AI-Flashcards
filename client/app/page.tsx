@@ -16,6 +16,7 @@ import { useState, useEffect } from "react";
 //----------stripe import----
 import getStripe from "@/lib/stripe/get-stripe";
 import { redirect } from "next/navigation";
+import { Card } from "@/components/ui/card";
 
 //--------------------------
 
@@ -104,18 +105,18 @@ export default function Home() {
       {/* Title content */}
       <div
         id="home"
-        className="flex flex-col items-center justify-center min-h-screen text-center p-4"
+        className="flex flex-col items-center justify-center min-h-screen p-4"
       >
-        <div className="flex flex-col items-center justify-center text-center">
+        <div className="flex flex-col items-center justify-center">
           <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mb-4">
-            FlashFlorte
+            More time studying flashcards,
+            <br />
+            less time creating them.
           </h1>
           <ParticlesBackground />
-          <p className="text-lg mb-8 max-w-lg">
-            Discover a smarter way to study with FlashFlorte. Create, manage,
-            and review your flashcards effortlessly to boost your learning and
-            retention. Get started now and turn your study sessions into
-            productive adventures!
+          <p className="text-lg mb-8">
+            Create flashcards using text and images, organize them into decks,
+            and study them with ease.
           </p>
           <SignedIn>
             <Link href="/dashboard">
@@ -123,16 +124,24 @@ export default function Home() {
             </Link>
           </SignedIn>
         </div>
+        <video
+          className="w-3/6 rounded-2xl mt-24 border-2 p-3"
+          autoPlay
+          muted
+          loop
+        >
+          <source src="/demo.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Features section */}
       <div
         id="features"
-        className="flex flex-col items-center min-h-screen text-center p-4"
+        className="flex flex-col items-center min-h-screen p-4"
       >
         <h2 className="text-3xl font-bold mb-16 text-center">Features</h2>
         <div className="flex flex-wrap justify-center gap-8 max-w-[1200px]">
-          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
+          <Card className="flex flex-col items-center bg-slate-90 dhadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
             <svg
               className="w-12 h-12 text-green-500 mb-4"
               xmlns="http://www.w3.org/2000/svg"
@@ -152,8 +161,8 @@ export default function Home() {
             <p className="text-gray-600 dark:text-gray-300">
               Easily create your own flashcards with our intuitive interface.
             </p>
-          </div>
-          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
+          </Card>
+          <Card className="flex flex-col items-center bg-slate-90 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
             <svg
               className="w-12 h-12 text-green-500 mb-4"
               xmlns="http://www.w3.org/2000/svg"
@@ -173,8 +182,8 @@ export default function Home() {
             <p className="text-gray-600 dark:text-gray-300">
               Organize and manage your flashcard decks with ease.
             </p>
-          </div>
-          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
+          </Card>
+          <Card className="flex flex-col items-center bg-slate-90 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
             <svg
               className="w-12 h-12 text-green-500 mb-4"
               xmlns="http://www.w3.org/2000/svg"
@@ -194,8 +203,8 @@ export default function Home() {
             <p className="text-gray-600 dark:text-gray-300">
               Review your flashcards to reinforce your learning and retention.
             </p>
-          </div>
-          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
+          </Card>
+          <Card className="flex flex-col items-center bg-slate-90 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
             <svg
               className="w-12 h-12 text-green-500 mb-4"
               xmlns="http://www.w3.org/2000/svg"
@@ -215,8 +224,8 @@ export default function Home() {
             <p className="text-gray-600 dark:text-gray-300">
               Create customized flashcards with AI-generated content.
             </p>
-          </div>
-          <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
+          </Card>
+          <Card className="flex flex-col items-center bg-slate-90 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
             <svg
               className="w-12 h-12 text-green-500 mb-4"
               xmlns="http://www.w3.org/2000/svg"
@@ -234,36 +243,31 @@ export default function Home() {
               Notes-to-Flashcards
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Effortlessly convert your notes into flashcards to streamline your
-              study sessions.
+              Use an image of your notes to create flashcards.
             </p>
-          </div>
+          </Card>
         </div>
       </div>
 
       {/* Pricing section */}
-      <div
-        id="pricing"
-        className="flex flex-col items-center min-h-screen text-center p-4"
-      >
+      <div id="pricing" className="flex flex-col items-center min-h-screen p-4">
         <h2 className="text-3xl font-bold mb-8 text-center">Pricing</h2>
         <p className="text-lg mb-16 max-w-lg">
-          Choose from our budget-friendly plans that offer great value while
-          catering to your learning needs.
+          One simple plan. No hidden fees. Cancel anytime.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
-          <div className="flex-1 max-w-md flex flex-col items-center bg-gray-50 dark:bg-gray-800 shadow-md rounded-lg p-8 w-[400px] text-center hover:shadow-lg transition-shadow duration-300">
+          <Card className="flex-1 max-w-md flex flex-col items-center shadow-md rounded-lg p-8 w-[350px] hover:shadow-lg transition-shadow duration-300">
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
               Basic Version
             </h3>
             <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
               $5/month
             </p>
-            <ul className="text-gray-600 dark:text-gray-300 mb-6">
-              <li>Access to basic features</li>
-              <li>Limited storage</li>
-              <li>Basic support</li>
+            <ul className="text-gray-600 dark:text-gray-300 mb-6 list-disc">
+              <li>Generate cards from text</li>
+              <li>Generate cards from images</li>
+              <li>Manage and study decks</li>
             </ul>
             <Button
               className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
@@ -271,7 +275,7 @@ export default function Home() {
             >
               Get Started
             </Button>
-          </div>
+          </Card>
         </div>
       </div>
       <footer className="mt-16 px-4 py-8 bg-slate-100 dark:bg-gray-800">
