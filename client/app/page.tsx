@@ -1,5 +1,4 @@
 "use client";
-
 import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
 import {
@@ -17,11 +16,11 @@ import { useState, useEffect } from "react";
 //----------stripe import----
 import getStripe from "@/lib/stripe/get-stripe";
 import { redirect } from "next/navigation";
+
 //--------------------------
 
 export default function Home() {
   const { user } = useUser();
-
   if (user) {
     // redirect("/checkAccount");
   }
@@ -38,7 +37,6 @@ export default function Home() {
       console.error(checkoutSessionJson.message);
       return;
     }
-
     const stripe = await getStripe();
     const { error } = await stripe.redirectToCheckout({
       sessionId: checkoutSessionJson.id,
@@ -73,8 +71,7 @@ export default function Home() {
             FlashFlorte
           </h1>
         </div>
-
-        {/* Tab Navigation */}
+        {/* Tab Naviagation */}
         <div className="flex-1 top-4 flex justify-center space-x-20">
           <a href="#home" className="text-lg font-semibold">
             Home
@@ -134,7 +131,7 @@ export default function Home() {
         className="flex flex-col items-center min-h-screen text-center p-4"
       >
         <h2 className="text-3xl font-bold mb-16 text-center">Features</h2>
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-wrap justify-center gap-8 max-w-[1200px]">
           <div className="flex flex-col items-center text-center bg-slate-90 dark:bg-gray-900 shadow-md rounded-lg p-6 w-80 h-75 hover:shadow-lg transition-shadow duration-300">
             <svg
               className="w-12 h-12 text-green-500 mb-4"
@@ -146,7 +143,8 @@ export default function Home() {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M12 3v18m9-9H3" />
+              <path d="M4 4h16v16H4z" />
+              <path d="M8 4v16M16 4v16" />
             </svg>
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
               Create Flashcards
@@ -166,7 +164,8 @@ export default function Home() {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M3 3h18v18H3zM7 7h10v10H7z" />
+              <path d="M4 6h16v12H4z" />
+              <path d="M12 6v12M8 12h8" />
             </svg>
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
               Manage Decks
@@ -207,7 +206,8 @@ export default function Home() {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M17 7v4H7V7m0 10v-4h10v4M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z" />
+              <path d="M4 4h16v16H4z" />
+              <path d="M8 4v16M16 4v16" />
             </svg>
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
               AI Generated Flashcards
@@ -227,14 +227,15 @@ export default function Home() {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M4 6h16v12H4z" />
-              <path d="M12 6v12M8 12h8" />
+              <path d="M4 4h16v16H4z" />
+              <path d="M8 4v16M16 4v16" />
             </svg>
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
-            Notes-to-Flashcards
+              Notes-to-Flashcards
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-                Effortlessly convert your notes into flashcards to streamline your study sessions.
+              Effortlessly convert your notes into flashcards to streamline your
+              study sessions.
             </p>
           </div>
         </div>
@@ -273,7 +274,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
       <footer className="mt-16 px-4 py-8 bg-slate-100 dark:bg-gray-800">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-gray-600 dark:text-gray-400">
