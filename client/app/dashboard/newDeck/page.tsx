@@ -12,6 +12,7 @@ import { Card } from "@/components/ui/card";
 import { ModeToggle } from "@/components/mode-toggle";
 import checkmarkIcon from "@/public/checkmark.svg";
 import { Skeleton } from "@/components/ui/skeleton";
+import Image from "next/image";
 
 export default function Page() {
   const [description, setDescription] = useState("");
@@ -177,8 +178,8 @@ export default function Page() {
       {/* Notification */}
       {notificationVisible && (
         <div className="fixed bottom-5 right-5 bg-green-500 text-white p-4 rounded-lg shadow-lg flex items-center space-x-3">
-          <img
-            src={checkmarkIcon.src}
+          <Image
+            src="/checkmark.svg"
             alt="Checkmark icon"
             className="w-6 h-6"
           />

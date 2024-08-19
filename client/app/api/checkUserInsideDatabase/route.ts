@@ -5,15 +5,12 @@ import { collection, getDocs, query } from "firebase/firestore";
 // Check if the user exists inside the database
 export async function POST(request: Request) {
   const userId = (await request.json()).userId;
-  console.log(userId);
 
   const usersQuery = query(collection(db, "users"));
 
   let querySnapshot = (await getDocs(usersQuery)).docs.filter((doc) => {
     return doc.id === userId;
   })[0];
-
-  console.log(querySnapshot);
 
   if (!querySnapshot) {
     return new Response(JSON.stringify({ exists: false }));

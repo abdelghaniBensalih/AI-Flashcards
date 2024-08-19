@@ -17,6 +17,7 @@ import { useState, useEffect } from "react";
 import getStripe from "@/lib/stripe/get-stripe";
 import { redirect } from "next/navigation";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 //--------------------------
 
@@ -55,19 +56,12 @@ export default function Home() {
       <nav className="absolute top-0 left-0 right-0 flex items-center justify-between p-4">
         {/* Top-left logo and title */}
         <div className="absolute top-4 left-4 flex items-center space-x-2">
-          <svg
-            className="w-8 h-8"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-            <path d="M12 22l10-5V7L12 2 2 7v10l10 5z" />
-          </svg>
+          <Image
+            src="/logo.svg"
+            alt="FlashFlorte logo"
+            width={40}
+            height={40}
+          />
           <h1 className="text-2xl font-extrabold tracking-tight lg:text-3xl">
             FlashFlorte
           </h1>
