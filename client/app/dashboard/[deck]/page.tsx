@@ -62,7 +62,7 @@ export default function Page() {
     if (userId) {
       getDeck(userId, deckName, setDeck);
     }
-  }, [userId]);
+  }, [userId, deckName]);
 
   return (
     <div className="flex flex-col items-center h-screen">

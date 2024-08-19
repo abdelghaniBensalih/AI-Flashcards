@@ -58,8 +58,8 @@ const ResultPage = () => {
             Payment Successful! 🎉
           </h1>
           <p className="text-gray-700 dark:text-gray-300 mb-2">
-            Thank you for your purchase! You're all set to start enhancing your
-            study sessions.
+            Thank you for your purchase! You&apos;re all set to start enhancing
+            your study sessions.
           </p>
           <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
             Session ID: {sessionId}

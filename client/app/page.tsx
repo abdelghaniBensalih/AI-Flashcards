@@ -119,7 +119,7 @@ export default function Home() {
           </SignedIn>
         </div>
         <video
-          className="w-3/6 rounded-2xl mt-10 border-2 p-3"
+          className="xl:w-3/6 w-5/6 rounded-2xl mt-10 border-2 p-3"
           autoPlay
           muted
           loop
