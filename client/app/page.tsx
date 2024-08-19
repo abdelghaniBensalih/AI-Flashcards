@@ -125,7 +125,7 @@ export default function Home() {
           </SignedIn>
         </div>
         <video
-          className="w-3/6 rounded-2xl mt-24 border-2 p-3"
+          className="w-3/6 rounded-2xl mt-10 border-2 p-3"
           autoPlay
           muted
           loop
@@ -257,14 +257,14 @@ export default function Home() {
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
-          <Card className="flex-1 max-w-md flex flex-col items-center shadow-md rounded-lg p-8 w-[350px] hover:shadow-lg transition-shadow duration-300">
+          <Card className="flex-1 max-w-md flex flex-col items-center gap-8 shadow-md rounded-lg p-8 w-[350px] hover:shadow-lg transition-shadow duration-300">
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">
               Basic Version
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-2xl mb-4">
+            <p className="text-gray-600 dark:text-gray-300 text-2xl">
               $5/month
             </p>
-            <ul className="text-gray-600 dark:text-gray-300 mb-6 list-disc">
+            <ul className="text-gray-600 dark:text-gray-300 list-disc">
               <li>Generate cards from text</li>
               <li>Generate cards from images</li>
               <li>Manage and study decks</li>

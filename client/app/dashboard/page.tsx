@@ -17,6 +17,14 @@ import {
 import { ChevronLeft } from "lucide-react";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Dialog,
+  DialogHeader,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 
 export default function Page() {
   const [decks, setDecks] = useState<Deck[]>();
@@ -41,7 +49,53 @@ export default function Page() {
         </Link>
       </div>
 
-      <div className="absolute top-4 right-4 flex items-center space-x-4 z-10">
+      <div className="absolute top-4 right-4 flex items-center gap-3 space-x-4 z-10">
+        {" "}
+        <Dialog>
+          <DialogTrigger className="underline">Contact Us</DialogTrigger>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Contact Us</DialogTitle>
+              <DialogDescription>
+                If you have any questions or concerns, please reach out to us:
+                <ul className="list-disc ml-6">
+                  <li>
+                    <span className="font-bold">Email:</span>{" "}
+                    <Link
+                      href="mailto:jinayunity22@gmail.com"
+                      className="underline"
+                    >
+                      jinayunity22@gmail.com
+                    </Link>
+                    ,
+                    <Link
+                      href="mailto:nebilawako@gmail.com"
+                      className="underline ml-1"
+                    >
+                      nebilawako@gmail.com
+                    </Link>
+                  </li>
+                  <li>
+                    <span className="font-bold">LinkedIn:</span>{" "}
+                    <Link
+                      href="https://www.linkedin.com/in/jinay-patel-6369002b4/"
+                      className="underline"
+                    >
+                      Jinay Patel
+                    </Link>
+                    ,
+                    <Link
+                      href="https://www.linkedin.com/in/nebila-wako-b61632289/"
+                      className="underline ml-1"
+                    >
+                      Nebila Wako
+                    </Link>
+                  </li>
+                </ul>
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog>
         <ModeToggle />
         <UserButton />
       </div>
