@@ -59,15 +59,23 @@ export default function Page() {
                       href="mailto:jinayunity22@gmail.com"
                       className="underline"
                     >
-                      jinayunity22@gmail.com
+                      Jinay
                     </Link>
                     ,
                     <Link
                       href="mailto:nebilawako@gmail.com"
                       className="underline ml-1"
                     >
-                      nebilawako@gmail.com
+                      Nebila
                     </Link>
+                    ,
+                    <Link
+                      href="mailto:abdelghanibesalih@gmail.com"
+                      className="underline ml-1"
+                    >
+                      Abdelghani
+                    </Link>
+                   
                   </li>
                   <li>
                     <span className="font-bold">LinkedIn:</span>{" "}
@@ -84,7 +92,16 @@ export default function Page() {
                     >
                       Nebila Wako
                     </Link>
+                    ,
+
+                    <Link
+                      href="https://www.linkedin.com/in/abdelghani-bensalih-469155219/"
+                      className="underline ml-1"
+                    >
+                      Abdelghani Bensalih
+                    </Link>
                   </li>
+                
                 </ul>
               </DialogDescription>
             </DialogHeader>
