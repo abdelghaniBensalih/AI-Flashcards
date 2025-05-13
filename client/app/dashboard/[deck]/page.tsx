@@ -108,10 +108,7 @@ export default function Page() {
             </Button>
           </div>
           <Progress
-            value={(currentCardIndex / (deck.cards.length - 1)) * 100}
-            min={0}
-            max={deck.cards.length - 1}
-            onChange={handleSliderChange}
+            value={(currentCardIndex / deck.cards.length) * 100}
             className="w-full mt-8"
           />
         </div>

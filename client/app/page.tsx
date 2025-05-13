@@ -213,10 +213,10 @@ export default function Home() {
       {/* Hero Section - Split Layout */}
       <section
         id="home"
-        className="flex flex-col md:flex-row items-center justify-between min-h-screen pt-20 md:pt-24 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800"
+        className="flex flex-col md:flex-row items-center justify-between min-h-screen pt-10 md:pt-12 px-6 md:px-12 lg:px-24 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800"
       >
         {/* Left Column - Text Content */}
-        <div className="w-full md:w-1/2 md:pr-8 lg:pr-12 mb-12 md:mb-0">
+        <div className="w-full md:w-1/2 md:pr-8 lg:pr-12 mb-20 md:mb-0">
           <h1
             className={`text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 font-heading`}
           >
@@ -260,7 +260,6 @@ export default function Home() {
           <div className="relative rounded-2xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 w-full max-w-lg">
             <video
               src="/demo.mp4"
-              
               className="w-full max-w-1xl rounded-2xl mt-10 border-2 p-3"
               autoPlay
               muted
