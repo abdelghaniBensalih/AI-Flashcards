@@ -438,7 +438,7 @@ export default function Home() {
               Plans That Fit Your Needs
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Whether you're a casual learner or a power user, we have a plan
+              Whether you are a casual learner or a power user, we have a plan
               for you.
             </p>
           </div>
