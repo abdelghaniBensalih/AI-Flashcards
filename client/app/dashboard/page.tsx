@@ -115,7 +115,7 @@ export default function Page() {
           Your Cards
         </h1>
         <Link href="/dashboard/newDeck" className="mx-auto mt-4">
-          <Button className="max-w-min mx-auto">Create a new deck</Button>
+          <Button className="max-w-min mx-auto" variant={"success"}>Create a new deck</Button>
         </Link>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
           {decks ? (

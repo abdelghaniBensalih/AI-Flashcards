@@ -13,7 +13,7 @@ const fontSans = FontSans({
 
 export const metadata: Metadata = {
   title: "FlashFlorte",
-  description: "Generate flashcards from your notes and text",
+  description: "Generate flashcards using a notes image or a text prompt",
 };
 
 export default function RootLayout({
